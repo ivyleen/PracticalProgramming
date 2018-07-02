@@ -1,0 +1,66 @@
+ 
+1.A company pays its salespeople on a
+commission basis. The salespeople each receive
+$200 per week plus 9 percent of their gross sales
+for that week. For example, a salesperson who
+grosses $5000 in sales in a week receives $200
+plus 9 percent of $5000, or a total of $650.
+Write a program (using an array of counters)
+that determines how many of the salespeople
+earned salaries in each of the following ranges
+(assume that each salesperson's salary is
+truncated to an integer amount):
+– $200$299
+– $300$399
+– $400$499
+– $500$599
+– $600$699
+– $700$799
+– $800$899
+– $900$999
+– $1000 and over
+
+
+
+2. Write a program that simulates the rolling of
+two dice. The program should use rand to roll
+the first die and should use rand again to roll
+the second die. The sum of the two values should
+then be calculated. Your program should roll
+the two dice 36,000 times. Use a one-dimensional
+array to tally the numbers of times each possible
+sum appears. Print the results in a tabular
+format. Also, determine if the totals are
+reasonable (i.e., there are six ways to roll a 7, so
+approximately one-sixth of all the rolls should
+be 7).
+
+
+
+3. A small airline has just purchased a computer for
+its new automated reservations system. You have
+been asked to program the new system. You are to
+write a program to assign seats on each flight of the
+airline's only plane (capacity: 10 seats). Make
+appropriate menu and messages.
+
+
+
+4. One of the more interesting puzzlers for chess buffs
+is the Knight's Tour problem. The question is this:
+Can the chess piece called the knight move around
+an empty chessboard and touch each of the 64
+squares once and only once? Write a program to
+solve the problem.
+
+
+
+5.A palindrome is a string that is spelled the same
+way forward and backward. Some examples of
+palindromes are "radar," "able was i ere i saw
+elba" and (if blanks are ignored) "a man a plan
+a canal panama." Write a recursive function
+testPalindrome that returns true if the string
+stored in the array is a palindrome, and false
+otherwise. The function should ignore spaces
+and punctuation in the string.
