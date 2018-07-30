@@ -1,0 +1,9 @@
+ 
+cmake_minimum_required(VERSION 2.6)
+include(CheckCXXCompilerFlag)
+CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall")
+add_executable(main.exe main.cpp)
+SET(games 1, 2, 3, 4)
+list(GET games 0 out)
+MESSAGE(${out})

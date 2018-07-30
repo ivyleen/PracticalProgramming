@@ -64,3 +64,11 @@ testPalindrome that returns true if the string
 stored in the array is a palindrome, and false
 otherwise. The function should ignore spaces
 and punctuation in the string.
+
+
+
+6. Linear search
+
+
+
+7. Insertion Sort

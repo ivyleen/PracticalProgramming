@@ -2,30 +2,61 @@
 #define EX1_H
 
 #include <iostream>
+#include <vector>
 
 class Ex1
 {
 private:
-    double m_dWholeCommission;
-    int m_iProcentOfCommision;
-    int m_iBaseCommision;
+    int m_iBaseCommission;
+    int m_iPercentOfGross;
+    vector<int> m_vGrosses;
 
-    void CalculateTheWholeCommision();
+    vector<int> m_vWholeSallaries;
+
+    vector<int> m_vCount[9];
+
+    void CalculateWholeSallaries();
 
 public:
-    Ex1(int baseCommision ,int procentOfCommision);
+    // constructor
+    Ex1(int baseCommision ,int procentOfGross, vector<int> gross);
+
+    // destructor
     ~Ex1();
 
-    bool IsInRange200To299();
-    bool IsInRange300To399();
-    bool IsInRange400To499();
-    bool IsInRange500To599();
-    bool IsInRange600To699();
-    bool IsInRange700To799();
-    bool IsInRange800To899();
-    bool IsInRange900To999();
-    bool IsOrAbove1000();
+    void SetBaseCommission(int baseCommission){m_iBaseCommission = baseCommission;}
+    void SetPercentOfGross(int percent){m_iPercentOfGross = percent;}
+    void SetGrosses(vector<int> grosses){m_vGrosses = grosses;}
 
+    // check how many people earn chosen sallary
+    vector<int> CountHowManyPeople();
+
+    // prints the distribution of all salaries
+    void PrintDistributionOfSallaries();
+
+private:
+
+    // check if the sallary is in range 200 To 299 for one salesperson
+    bool IsInRange200To299(int i);
+    // check if the sallary is in range 300 To 399 for one salesperson
+    bool IsInRange300To399(int i);
+    // check if the sallary is in range 400 To 499 for one salesperson
+    bool IsInRange400To499(int i);
+    // check if the sallary is in range 500 To 599 for one salesperson
+    bool IsInRange500To599(int i);
+    // check if the sallary is in range 600 To 699 for one salesperson
+    bool IsInRange600To699(int i);
+    // check if the sallary is in range 700 To 799 for one salesperson
+    bool IsInRange700To799(int i);
+    // check if the sallary is in range 800 To 899 for one salesperson
+    bool IsInRange800To899(int i);
+    // check if the sallary is in range 900 To 999 for one salesperson
+    bool IsInRange900To999(int i);
+    // check if the sallary is above 1000 for one salesperson
+    bool IsOrAbove1000(int i);
+
+    // sets the members to 0
+    void Clean();
 };
 
 #endif // EX1_H
