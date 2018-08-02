@@ -1,11 +1,26 @@
 #include "ex1.h"
 
-Ex1::Ex1(int baseCommision, int procentOfGross, vector<int> gross)
+Ex1::Ex1()
+    : m_iBaseCommission(0)
+    , m_iPercentOfGross(0)
+    , m_vGrosses{}
+    , m_vWholeSallaries{}
+{
+    m_bEmptyConstructor = true;
+    std::cout << "You are starting with empty constructor." << std::endl <<
+                 "Please enter the correct values for: "
+                 "base commission,"
+                 "percent of gross,"
+                 "and vector of grosses." << std::endl;
+}
+
+Ex1::Ex1(int baseCommision , int procentOfGross, vector<int> &gross)
     : m_iBaseCommission(baseCommision)
     , m_iPercentOfGross(procentOfGross)
-    , m_iGross(gross)
-    , m_vWholeSallaries{0}
+    , m_vGrosses(gross)
 {
+    m_bEmptyConstructor = false;
+    m_vWholeSallaries.resize(gross.size());
     CalculateWholeSallaries();
 }
 
@@ -16,37 +31,59 @@ Ex1::~Ex1()
 
 void Ex1::CalculateWholeSallaries()
 {
-    for (int i = 0; i < m_vGrosses.size(); i++)
+    m_vWholeSallaries.resize(m_vGrosses.size());
+    for (unsigned int i = 0; i < m_vGrosses.size(); i++)
     {
         m_vWholeSallaries[i] = m_iBaseCommission +
-                (m_iPercentOfGross * m_vGrosses[i]);
+                static_cast<double>((m_iPercentOfGross * m_vGrosses[i])/100);
     }
+
+    PrintWholeSallaries();
+
+    if (m_bEmptyConstructor)
+    {
+        m_bEmptyConstructor = ! m_bEmptyConstructor;
+    }
+
+    CountHowManyPeople();
 }
 
 void Ex1::Clean()
 {
     m_iBaseCommission = 0;
     m_iPercentOfGross = 0;
-    m_iGross.clean();
-    m_vWholeSallaries.clean();
+    m_vGrosses.clear();
+    m_vWholeSallaries.clear();
+    m_vCount.clear();
 }
 
-vector<int> Ex1::CountHowManyPeople()
+void Ex1::CountHowManyPeople()
 {
-    for (int i = 0 ; i < m_vWholeSallaries.size(); i++)
+    if (m_bEmptyConstructor){
+        std::cout << "First we need to calculate the whole sallaries." << std::endl;
+        CalculateWholeSallaries();
+    }
+    else
     {
-        if(IsInRange200To299(i)) {m_vCount[0]++;}
-        if(IsInRange300To399(i)) {m_vCount[1]++;}
-        if(IsInRange400To499(i)) {m_vCount[2]++;}
-        if(IsInRange500To599(i)) {m_vCount[3]++;}
-        if(IsInRange600To699(i)) {m_vCount[4]++;}
-        if(IsInRange700To799(i)) {m_vCount[5]++;}
-        if(IsInRange800To899(i)) {m_vCount[6]++;}
-        if(IsInRange900To999(i)) {m_vCount[7]++;}
-        if(IsOrAbove1000(i)) {m_vCount[8]++;}
+        std:: cout << "Now we count." << std::endl;
     }
 
-    return m_vCount;
+    for (unsigned int i = 0 ; i < m_vWholeSallaries.size(); i++)
+    {
+        if(IsInRange200To299(i)) {  }
+        if(IsInRange300To399(i)) {  }
+        if(IsInRange400To499(i)) {  }
+        if(IsInRange500To599(i)) {  }
+        if(IsInRange600To699(i)) {  }
+        if(IsInRange700To799(i)) {  }
+        if(IsInRange800To899(i)) {  }
+        if(IsInRange900To999(i)) {  }
+        if(IsOrAbove1000(i)) {  }
+    }
+
+        PrintDistributionOfSallaries();
+
+    //return m_vCount;
 }
 
 bool Ex1::IsInRange200To299(int i)
@@ -97,16 +134,26 @@ bool Ex1::IsOrAbove1000(int i)
 void Ex1::PrintDistributionOfSallaries()
 {
     std::cout << "Range : " << std::endl;
-    for (int i=0; i < m_vCount.size(); i++)
+    for (unsigned int i=0; i < m_vCount.size(); i++)
     {
         if (i != 9){
             std::cout << ( ( (i+1)*100) +100) << " - " <<
-                         ( ( (i+1)*100) +199) << setw(13);
+                         ( ( (i+1)*100) +199) << setw(13) << m_vCount[i];
         }
-        else if ()
+        else if (i>9)
         {
-            std::cout << "1000"<< setw(13);
+            std::cout << "1000"<< setw(13)<< m_vCount[i];
         }
-    }
 
+        std::cout << std::endl;
+    }
+}
+
+void Ex1::PrintWholeSallaries()
+{
+    std::cout << "Whole sallaries : " << std::endl;
+    for (unsigned int i=0; i < m_vWholeSallaries.size(); i++)
+    {
+            std::cout << i+1 << setw(13) <<std::setprecision (5) << m_vWholeSallaries[i] << std::endl;
+    }
 }

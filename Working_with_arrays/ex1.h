@@ -2,7 +2,9 @@
 #define EX1_H
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
+using namespace std;
 
 class Ex1
 {
@@ -11,15 +13,23 @@ private:
     int m_iPercentOfGross;
     vector<int> m_vGrosses;
 
-    vector<int> m_vWholeSallaries;
+    vector<double> m_vWholeSallaries;
 
-    vector<int> m_vCount[9];
+    vector<int> m_vCount;
+
+    // check if we start with empty constructor
+    bool m_bEmptyConstructor;
 
     void CalculateWholeSallaries();
 
+    void PrintWholeSallaries();
+
 public:
+    //blank constructor
+    Ex1();
+
     // constructor
-    Ex1(int baseCommision ,int procentOfGross, vector<int> gross);
+    Ex1(int baseCommision ,int procentOfGross, vector<int>& gross);
 
     // destructor
     ~Ex1();
@@ -29,12 +39,12 @@ public:
     void SetGrosses(vector<int> grosses){m_vGrosses = grosses;}
 
     // check how many people earn chosen sallary
-    vector<int> CountHowManyPeople();
+    void CountHowManyPeople();
+
+private:
 
     // prints the distribution of all salaries
     void PrintDistributionOfSallaries();
-
-private:
 
     // check if the sallary is in range 200 To 299 for one salesperson
     bool IsInRange200To299(int i);
