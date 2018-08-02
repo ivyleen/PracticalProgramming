@@ -7,7 +7,7 @@ Ex1::Ex1()
     , m_vWholeSallaries{}
 {
     m_bEmptyConstructor = true;
-    std::cout << "You are starting with empty constructor." << std::endl <<
+    std::cout << "You are starting with default constructor." << std::endl <<
                  "Please enter the correct values for: "
                  "base commission,"
                  "percent of gross,"
@@ -22,6 +22,7 @@ Ex1::Ex1(int baseCommision , int procentOfGross, vector<int> &gross)
     m_bEmptyConstructor = false;
     m_vWholeSallaries.resize(gross.size());
     CalculateWholeSallaries();
+    std::cout << "You are using parameterized constructor. Thank you." << std::endl;
 }
 
 Ex1::~Ex1()
