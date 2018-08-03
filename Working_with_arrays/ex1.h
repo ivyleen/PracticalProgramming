@@ -41,7 +41,7 @@ public:
     //default constructor
     Ex1();
 
-    // constructor
+    // parameterized constructor
     Ex1(int baseCommision ,int procentOfGross, vector<int>& gross);
 
     // destructor
@@ -51,6 +51,9 @@ public:
     void SetBaseCommission(int baseCommission);
     void SetPercentOfGross(int percent);
     void SetGrosses(vector<int> grosses);
+
+    // get the results of counts
+    std::array<int,COUNT_SIZE> GetTheCountedValues () {return m_aCount;}
 
     // check how many people earn chosen sallary
     void CountHowManyPeople();

@@ -19,7 +19,22 @@ truncated to an integer amount):
 – $800$899
 – $900$999
 – $1000 and over
-
+------------------------------------------------------
+                Solution for ex1
+------------------------------------------------------
+Made a class that works with default and parameterized
+constructor. For the default there are provided setters.
+Working with parameterized constructor there is no need
+to do anything else but to give the correct values with
+making the object. There is DEBUG mode which provides
+every value of sallaries and counts printed on the console.
+There is getter for counter array if needed to operate.
+I used containers such as vector(for the grosses and
+sallaries) and std::array (fixed size container for counters).
+For smooth usage of the program I made a bool member
+which contains the information if we started with eighter
+constructors and how to proceed with correct calculations.
+-------------------------------------------------------
 
 
 2. Write a program that simulates the rolling of
