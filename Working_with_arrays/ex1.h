@@ -17,6 +17,8 @@ private:
 
     vector<int> m_vCount;
 
+    static const unsigned char COUNT_SIZE = 9;
+
     // check if we start with empty constructor
     bool m_bEmptyConstructor;
 

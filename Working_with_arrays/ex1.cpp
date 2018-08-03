@@ -12,6 +12,7 @@ Ex1::Ex1()
                  "base commission,"
                  "percent of gross,"
                  "and vector of grosses." << std::endl;
+    m_vCount.resize(COUNT_SIZE);
 }
 
 Ex1::Ex1(int baseCommision , int procentOfGross, vector<int> &gross)
@@ -19,10 +20,11 @@ Ex1::Ex1(int baseCommision , int procentOfGross, vector<int> &gross)
     , m_iPercentOfGross(procentOfGross)
     , m_vGrosses(gross)
 {
+    std::cout << "You are using parameterized constructor. Thank you." << std::endl;
     m_bEmptyConstructor = false;
     m_vWholeSallaries.resize(gross.size());
+    m_vCount.resize(COUNT_SIZE);
     CalculateWholeSallaries();
-    std::cout << "You are using parameterized constructor. Thank you." << std::endl;
 }
 
 Ex1::~Ex1()
@@ -60,31 +62,30 @@ void Ex1::Clean()
 
 void Ex1::CountHowManyPeople()
 {
-    if (m_bEmptyConstructor){
+    if (m_bEmptyConstructor)
+    {
         std::cout << "First we need to calculate the whole sallaries." << std::endl;
         CalculateWholeSallaries();
     }
     else
     {
         std:: cout << "Now we count." << std::endl;
-    }
-
-    for (unsigned int i = 0 ; i < m_vWholeSallaries.size(); i++)
-    {
-        if(IsInRange200To299(i)) {  }
-        if(IsInRange300To399(i)) {  }
-        if(IsInRange400To499(i)) {  }
-        if(IsInRange500To599(i)) {  }
-        if(IsInRange600To699(i)) {  }
-        if(IsInRange700To799(i)) {  }
-        if(IsInRange800To899(i)) {  }
-        if(IsInRange900To999(i)) {  }
-        if(IsOrAbove1000(i)) {  }
-    }
+        int tempCount = 0;
+        for (unsigned int i = 0 ; i < m_vWholeSallaries.size(); i++)
+        {
+            if(IsInRange200To299(i)) { m_vCount[0]++; }
+            if(IsInRange300To399(i)) { m_vCount[1]++; }
+            if(IsInRange400To499(i)) { m_vCount[2]++; }
+            if(IsInRange500To599(i)) { m_vCount[3]++; }
+            if(IsInRange600To699(i)) { m_vCount[4]++; }
+            if(IsInRange700To799(i)) { m_vCount[5]++; }
+            if(IsInRange800To899(i)) { m_vCount[6]++; }
+            if(IsInRange900To999(i)) { m_vCount[7]++; }
+            if(IsOrAbove1000(i)) { m_vCount[8]++; }
+        }
 
         PrintDistributionOfSallaries();
-
-    //return m_vCount;
+    }
 }
 
 bool Ex1::IsInRange200To299(int i)
@@ -134,16 +135,16 @@ bool Ex1::IsOrAbove1000(int i)
 
 void Ex1::PrintDistributionOfSallaries()
 {
-    std::cout << "Range : " << std::endl;
+    std::cout << "Range : " << std::setw(14) << "Count :"<< std::endl;
     for (unsigned int i=0; i < m_vCount.size(); i++)
     {
-        if (i != 9){
+        if (i < 8){
             std::cout << ( ( (i+1)*100) +100) << " - " <<
                          ( ( (i+1)*100) +199) << setw(13) << m_vCount[i];
         }
-        else if (i>9)
+        else
         {
-            std::cout << "1000"<< setw(13)<< m_vCount[i];
+            std::cout << "Above 1000"<< std::setw(12)<< m_vCount[i];
         }
 
         std::cout << std::endl;
@@ -153,8 +154,9 @@ void Ex1::PrintDistributionOfSallaries()
 void Ex1::PrintWholeSallaries()
 {
     std::cout << "Whole sallaries : " << std::endl;
+    std::cout << "Person № " << std::setw(13) << "Sallary :" << std::endl;
     for (unsigned int i=0; i < m_vWholeSallaries.size(); i++)
     {
-            std::cout << i+1 << setw(13) <<std::setprecision (5) << m_vWholeSallaries[i] << std::endl;
+        std::cout << i+1 << setw(21) <<std::setprecision (5) << m_vWholeSallaries[i] << std::endl;
     }
 }
