@@ -1,33 +1,44 @@
 #ifndef EX1_H
 #define EX1_H
 
+#define DEBUG
+
+// includes
 #include <iostream>
 #include <iomanip>
 #include <vector>
-using namespace std;
+
+using std::vector;
+using std::array;
+using std::cout;
+using std::setw;
+using std::endl;
+
 
 class Ex1
 {
 private:
-    int m_iBaseCommission;
-    int m_iPercentOfGross;
-    vector<int> m_vGrosses;
-
-    vector<double> m_vWholeSallaries;
-
-    vector<int> m_vCount;
-
+    // we need to have constant count value
     static const unsigned char COUNT_SIZE = 9;
 
-    // check if we start with empty constructor
+    int m_iBaseCommission;
+    int m_iPercentOfGross;
+
+    // we don't have information about how many
+    // workers we would be provided with
+    // that's why we use vector
+    vector<int> m_vGrosses;
+    vector<double> m_vWholeSallaries;
+
+    // we have fixed number of ranges
+    // that's why we use std::array
+    std::array<int, COUNT_SIZE> m_aCount;
+
+    // check if we start with default constructor
     bool m_bEmptyConstructor;
 
-    void CalculateWholeSallaries();
-
-    void PrintWholeSallaries();
-
 public:
-    //blank constructor
+    //default constructor
     Ex1();
 
     // constructor
@@ -36,18 +47,27 @@ public:
     // destructor
     ~Ex1();
 
-    void SetBaseCommission(int baseCommission){m_iBaseCommission = baseCommission;}
-    void SetPercentOfGross(int percent){m_iPercentOfGross = percent;}
-    void SetGrosses(vector<int> grosses){m_vGrosses = grosses;}
+    // setter functions
+    void SetBaseCommission(int baseCommission);
+    void SetPercentOfGross(int percent);
+    void SetGrosses(vector<int> grosses);
 
     // check how many people earn chosen sallary
     void CountHowManyPeople();
 
 private:
 
+    // helper function that calculates
+    // the vector of all sallaries
+    void CalculateWholeSallaries();
+
+    // prints all "person - salary"
+    void PrintWholeSallaries();
+
     // prints the distribution of all salaries
     void PrintDistributionOfSallaries();
 
+    // helper functions:
     // check if the sallary is in range 200 To 299 for one salesperson
     bool IsInRange200To299(int i);
     // check if the sallary is in range 300 To 399 for one salesperson
