@@ -9,7 +9,8 @@
 int main() {
 
     std::cout << "Fist try" << std::endl;
-
+    // Ex1
+/*
     vector<int> gross = {1234,4363,1493, 654, 24523};
 
     Ex1 paytable;
@@ -22,7 +23,12 @@ int main() {
 
     std::cout << std::endl << "Second try" << std::endl;
     Ex1 paytable2(300, 10, gross);
+*/
 
+    // Ex2
+
+
+    std::cout << std::endl << "Second try" << std::endl;
 
     return 0;
 }
