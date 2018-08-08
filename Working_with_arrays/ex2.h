@@ -5,23 +5,46 @@
 
 // includes
 #include <vector>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include <iostream>
+#include <array>
+#include <iomanip>
 
 using std::vector;
+using std::cout;
+using std::endl;
+using std::array;
+using std::rand;
+using std::srand;
+using std::setw;
 
 class Ex2
 {
 private:
-    // the two dice
-    int m_iFirstDice;
-    int m_iSecondDice;
 
-    vector<int> m_vCalculatedValue;
+    static const unsigned int NUMBER_OF_ROLLED_TIMES = 36000;
+    static const unsigned int NUMBER_OF_FREQUENCY    = 30;
+
+    // the two dice
+    int m_iFirstDie;
+    int m_iSecondDie;
+
+    std::array<int, NUMBER_OF_ROLLED_TIMES> m_aCalculatedValues;
+
+    std::array<int, NUMBER_OF_FREQUENCY> m_aCount;
+
+    // roll the two different dice and return the result
+    int RollFirstDie( );
+    int RollSecondDie( );
+
+    void PrintCalculatedValues();
 
 public:
     Ex2();
-    ~Ex2();
+    virtual~Ex2();
 
-    vector<int> GetTheCalculatedValues(){return m_vCalculatedValue;}
+    std::array<int, NUMBER_OF_ROLLED_TIMES> GetTheCalculatedValues(){return m_aCalculatedValues;}
 
     // roll the dice 36 000 times and save the calculated values
     void RollTheTwoDice();

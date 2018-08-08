@@ -45,7 +45,7 @@ public:
     Ex1(int baseCommision ,int procentOfGross, vector<int>& gross);
 
     // destructor
-    ~Ex1();
+    virtual ~Ex1();
 
     // setter functions
     void SetBaseCommission(int baseCommission);
