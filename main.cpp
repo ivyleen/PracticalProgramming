@@ -6,10 +6,11 @@
 #include "Working_with_arrays/ex2.h"
 
 
-int main() {
-
-    std::cout << "Fist try" << std::endl;
+int main()
+{
     // Ex1
+/*    std::cout << std::endl << "Ex1 begins here." << std::endl;
+    std::cout << "Fist try" << std::endl;
 
     vector<int> gross = {1234,4363,1493, 654, 24523};
 
@@ -23,12 +24,12 @@ int main() {
 
     std::cout << std::endl << "Second try" << std::endl;
     Ex1 paytable2(300, 10, gross);
-    std::cout << std::endl;
-
+    std::cout << "Ex1 ends here."<< std::endl;
+*/
     // Ex2
-
+    std::cout << std::endl << "Ex2 begins here." << std::endl;
     Ex2 SecondEx;
-    std::cout << std::endl << "Second try" << std::endl;
+    std::cout << "Ex2 ends here."<< std::endl;
 
     return 0;
 }
