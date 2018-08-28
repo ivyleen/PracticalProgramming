@@ -84,7 +84,7 @@ void Ex2::Print()
               << "    Probabilities      :"
               << "  Ideal % : " <<setw(set*set)
               << "   Real % : " <<setw(set*set)
-              << " Compared : "
+              << "Reasonable:"
               <<std::endl;
 
     // print the first horizontal line
@@ -164,10 +164,23 @@ void Ex2::CheckTheTotals()
     // calculate the ideal percentage of probabilities
     for (unsigned i = 2; i < NUMBER_OF_FREQUENCY; i++)
     {
+        int scale = 100;
+        if (NUMBER_OF_ROLLED_TIMES >= 1000){
+            scale = 10000;
+        }
+        if (NUMBER_OF_ROLLED_TIMES >= 10000)
+        {
+            scale = 100000;
+        }
+        if (NUMBER_OF_ROLLED_TIMES >= 100000)
+        {
+            scale = 1000000;
+        }
+
 #ifdef DEBUG
-        std::cout << "ideal : " << i << ((static_cast<double>(m_aProbabilities[i])/NUMBER_OF_ROLLED_TIMES)*100) <<std::endl;
+        std::cout << "ideal : " << i << ((static_cast<double>(m_aProbabilities[i])/NUMBER_OF_ROLLED_TIMES)*scale) <<std::endl;
 #endif
-        m_aIdealResultPercentage.at(i) = ((static_cast<double>(m_aProbabilities[i])/NUMBER_OF_ROLLED_TIMES)*100);
+        m_aIdealResultPercentage.at(i) = ((static_cast<double>(m_aProbabilities[i])/NUMBER_OF_ROLLED_TIMES)*scale);
     }
 
     // calculate the real percentage of probabilities
@@ -176,7 +189,7 @@ void Ex2::CheckTheTotals()
 #ifdef DEBUG
         std::cout << "real : " << i << ((static_cast<double>(m_aCount[i])/11)*100)<<std::endl;
 #endif
-        m_aRealResultPercentage.at(i) = ((static_cast<double>(m_aCount[i])/NUMBER_OF_ROLLED_TIMES)*100);
+        m_aRealResultPercentage.at(i) = ((static_cast<double>(m_aCount.at(i))/NUMBER_OF_ROLLED_TIMES)*100);
     }
 
     // compare ideal to real result

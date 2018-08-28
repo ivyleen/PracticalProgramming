@@ -24,7 +24,7 @@ class Ex2
 {
 private:
 
-    static const unsigned int NUMBER_OF_ROLLED_TIMES  = 11;
+    static const unsigned int NUMBER_OF_ROLLED_TIMES  = 36000;
     static const unsigned int NUMBER_OF_FREQUENCY     = 13;
 
     // array that shows how many ways there are
