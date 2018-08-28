@@ -50,6 +50,20 @@ reasonable (i.e., there are six ways to roll a 7, so
 approximately one-sixth of all the rolls should
 be 7).
 
+------------------------------------------------------
+                Solution for ex2
+------------------------------------------------------
+Made a class which is self sustained: rolling the two
+dice, counting the sums, find the ideal and real
+probabilities of rolling the specific number of the die.
+I'm using std::array as primary and only container.
+There is DEBUG mode which provides all the the different
+components and stages of the program for better understanding.
+Static cast is nececcery for obtaining the right
+percentage and to put it in the container: division of
+an integer by another integer is also integer.
+-------------------------------------------------------
+
 
 
 3. A small airline has just purchased a computer for
