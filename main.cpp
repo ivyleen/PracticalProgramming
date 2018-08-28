@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Working_with_arrays/ex1.h"
 #include "Working_with_arrays/ex2.h"
+#include "Working_with_arrays/ex3.h"
 
 
 int main()
@@ -27,9 +28,12 @@ int main()
     std::cout << "Ex1 ends here."<< std::endl;
 */
     // Ex2
-    std::cout << std::endl << "Ex2 begins here." << std::endl;
+    /*std::cout << std::endl << "Ex2 begins here." << std::endl;
     Ex2 SecondEx;
-    std::cout << "Ex2 ends here."<< std::endl;
+    std::cout << "Ex2 ends here."<< std::endl;*/
+
+    std::cout << std::endl << "Ex3 begins here." << std::endl;
+    std::cout << "Ex3 ends here."<< std::endl;
 
     return 0;
 }
