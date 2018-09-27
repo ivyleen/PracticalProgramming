@@ -15,10 +15,11 @@ using std::endl;
 using std::array;
 using std::string;
 
+static const unsigned char NUMBER_OF_SEATS = 10;
+
 class Flight
 {
 private:
-	static const unsigned char NUMBER_OF_SEATS = 10;
 
 #ifdef DEBUG
 	bool error = false;
@@ -61,6 +62,8 @@ public:
 
 	bool CheckIfFullCapacity();
 	bool CheckIfPlaneIsEmpty();
+
+	inline bool IsSeatFree(int seat){return m_aSeats.at(seat).IsFreeSeat();}
 
 	// main functions
 	void TakeSeat(int seat);
