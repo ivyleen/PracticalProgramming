@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Working_with_arrays/ex1.h"
 #include "Working_with_arrays/ex2.h"
-#include "Working_with_arrays/ex3.h"
+#include "Working_with_arrays/Ex3/ex3.h"
 
 
 int main()

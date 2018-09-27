@@ -1,12 +1,17 @@
 
 #include "ex3.h"
 
-void Ex3::FlightSchedule()
+Ex3::Ex3()
 {
 
 }
 
-void Ex3::TakeSeat()
+Ex3::~Ex3()
+{
+
+}
+
+void Ex3::TakeFreeSeat()
 {
 
 }
@@ -62,6 +67,14 @@ void Ex3::Menu()
     cout << "Please confirm that your flight is: " << flight << "." << endl
          << "To answear enter yes or no." << endl;
     cin >> answear;
+    if(answear == "yes")
+    {
+        m_iCurrentFlight = flight;
+    }
+    else if(answear == "no")
+    {
+
+    }
 
     cout << "Flight " << flight << endl
          << "Please chose with number from the menu below :" << endl;
@@ -113,7 +126,7 @@ void Ex3::Menu()
             }
             else if(answear == "no")
             {
-                TakeSeat();
+				TakeFreeSeat();
             }
         }
         else
