@@ -2,12 +2,14 @@
 #include <stdio.h>
 #include <string>
 #include <limits>
-#include <math.h>
+#include <cmath>
+#include <iomanip>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::setw;
 
 template <typename type>
 void CheckIfValid(type& number)
@@ -107,11 +109,13 @@ void PrintSizesOfDataTypes()
 
 void SwapTwoNumbers()
 {
+    cout << "SwapTwoNumbers" << endl;
+
     int number1, number2;
     CheckIfValid(number1);
     CheckIfValid(number2);
 
-    cout << "First tehniques:" << endl;
+    cout << "First tehniques: without additional variable" << endl;
     cout << " Before swapping " << endl
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
@@ -124,7 +128,7 @@ void SwapTwoNumbers()
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
 
-    cout << "Second tehniques:" << endl;
+    cout << "Second tehniques: with additional variable" << endl;
     cout << " Before swapping " << endl 
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
@@ -137,6 +141,319 @@ void SwapTwoNumbers()
     cout << " After swapping" << endl
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
+
+    cout << "Third tehniques: with STL" << endl;
+    cout << " Before swapping " << endl 
+         << "  number 1: " << number1 << endl
+         << "  number2: " << number2 << "." << endl;
+
+    std::swap(number1,number2);
+
+    cout << " After swapping" << endl
+         << "  number 1: " << number1 << endl
+         << "  number2: " << number2 << "." << endl;
+}
+
+void IsNumberEven()
+{
+    cout << "IsNumberEven" << endl;
+
+    double number;
+    CheckIfValid(number);
+
+    // check if there is any reminder when we divide the number by 2
+    if ( fmod(number,2) == 0)
+        cout << "The number you've entered is even. " << endl;
+    else 
+        cout << "The number you've entered is odd." << endl;
+}
+
+void IsCharacterAVowel()
+{
+    cout << "CheckIfCharacterIsVowel" << endl;
+
+    char character;
+    CheckIfValid(character);
+
+    if ( character == 'a' || character == 'A' ||
+         character == 'e' || character == 'E' ||
+         character == 'u' || character == 'U' ||
+         character == 'i' || character == 'I' ||
+         character == 'o' || character == 'O'    
+        ) 
+    {
+        cout << "The character is vowel." << endl;
+    }
+    else
+    {
+        cout << "The character is not a vowel." << endl;
+    }
+}
+
+void BiggerOfThreeNumbers()
+{
+    cout << "CheckBiggerOfThreeNumbers" << endl;
+
+    double number1, number2, number3, max;
+    CheckIfValid(number1);
+    CheckIfValid(number2);
+    CheckIfValid(number3);
+
+    if(number1 >= number2 && number1 >= number3)
+    {
+        max = number1;
+    }
+
+    if(number2 >= number1 && number2 >= number3)
+    {
+        max = number2;
+    }
+
+    if(number3 >= number1 && number3 >= number2)
+    {
+        max = number3;
+    }
+
+    cout << "The bigger number of the three is: " << max << endl;
+
+}
+
+void SolveTheQuadraticEquation()
+{
+    cout << "SolveTheQuadraticEquation" << endl;
+
+    double a, b, c, determinant, root1, root2, realPart, imaginaryPart;
+    CheckIfValid(a);
+    CheckIfValid(b);
+    CheckIfValid(c);
+
+    determinant = b*b-4*a*c;
+
+    if( determinant > 0)
+    {
+        root1 = (-b + sqrt(determinant) ) / (2*a);
+        root2 = (-b - sqrt(determinant) ) / (2*a);
+
+        cout << "root 1: " << root1 << endl <<
+                "root 2: " << root2 << endl;
+    }
+    else if(determinant == 0)
+    {
+        root1 = root2 = -b / (2*a);
+        cout << "root1 == root2 == " << root1 << endl;
+    }
+    else
+    {
+        realPart = -b / (2*a);
+        imaginaryPart = sqrt(-determinant) / (2*a);
+
+        cout << "The equation doesn't have real roots." << endl;
+        cout << "root 1: " << realPart << "+" << imaginaryPart << "i" << endl <<
+                "root 2: " << realPart << "-" << imaginaryPart << "i" << endl ;
+    }
+    
+}
+
+void IsLeapYear()
+{
+    cout << " IsLeapYear " << endl;
+
+    int year;
+    CheckIfValid(year);
+
+    if ( (year % 4) == 0)
+    {
+        if ( (year % 100) == 0)
+        {
+            if ( (year % 400) == 0)
+            {
+                cout << "The year " << year << " is a leap year." << endl;
+            }
+            else
+            {
+                cout << "The year " << year << " is not a leap year." << endl;
+            }
+        }
+        else 
+        {
+            cout << "The year " << year << " is a leap year." << endl;
+        }
+    }
+    else 
+    {
+        cout << "The year " << year << " is not a leap year." << endl;
+    }
+}
+
+void IsPositive()
+{
+    cout << "IsPositive" << endl;
+
+    double number;
+    CheckIfValid(number);
+
+    if (number > 0)
+    {
+        cout << "The number " << number << " is positive." << endl;
+    }
+    else if (number < 0)
+    {
+        cout << "The number " << number << " is negative." << endl;
+    }
+    else 
+    {
+        cout << "The number " << number << " is zeroE." << endl;   
+    }
+}
+
+void PrintSumOfInputIterationCount()
+{
+    cout << "PrintSumOfInputIterationCount" << endl;
+    
+    int count, sum = 0;
+    do
+    {
+        CheckIfValid(count);
+    } while (count <= 0);
+    
+    for (int i = 1; i <= count; i++)
+    {
+        sum += i;
+    }
+
+    cout << "The sum is: " << sum << endl;
+}
+
+void PrintCountOfIterationsUntilRandomNumberIsEqualToInputNumber()
+{
+    cout << "PrintSumOfInputIterationCount" << endl;
+    
+    int randomNumber, input, count = 0;
+    do
+    {
+        CheckIfValid(input);
+    } while (input <= 0);
+    
+    while ( randomNumber != input)
+    {
+        randomNumber = 1 + rand() % RAND_MAX;
+        count++;
+    }
+
+    cout << "The count is: " << count << endl;
+}
+
+void IsInputCharacterInEnglishAlphabet()
+{
+    cout << "IsInputCharacterInEnglishAlphabet" << endl;
+
+    char character;
+    CheckIfValid(character);
+
+    if ( (character >= 'a' && character <= 'z') 
+          || (character >= 'A' && character <= 'Z') )
+
+    {
+        cout << "The character " << character << " is in alphabet." << endl;
+    }
+    else
+    {
+        cout << "The character " << character << " is not in alphabet." << endl;
+    }
+    
+}
+
+void CalculateFactorialOfInputNumber()
+{
+    cout << "CalculateFactorialOfInputNumber" << endl;
+    
+    int number;
+    do
+    {
+        CheckIfValid(number);
+    } while (number <= 0);
+
+    unsigned long factorial = 1;
+    for ( int i = 1; i <= number; ++i)
+    {
+        factorial *= i;
+    }
+    
+    cout << "Factorial of number " << number << 
+            " is " << factorial << endl;
+}
+
+void PrintTableOfMultiplicationOfInputNumber()
+{
+    cout << "PrintTableOfMultiplicationOfInputNumber" << endl;
+    
+    int number;
+    do
+    {
+        CheckIfValid(number);
+    } while (number < 0);
+
+    for (int i = 1; i <= 10; ++i)
+    {
+        cout <<  number << " * " << setw(2) << i << " = " 
+             << setw(2) << (number * i) << endl;
+    }
+}
+
+void PrintFibonacciNumbers()
+{
+    cout << "PrintFibonacciNumbers" << endl;
+
+    int term1 = 0, term2 = 1, nextTerm = 0, countOfTerms;
+    CheckIfValid(countOfTerms);
+
+    cout << "Fibonacci numbers : " << endl;
+    for ( int i = 1; i <= countOfTerms; ++i)
+    {
+        string commaOrDot = ", ";
+        if( i == countOfTerms) commaOrDot = ".";
+
+        if ( i == 1) 
+        {   
+            cout << term1 << commaOrDot; 
+            continue;
+        }
+
+        if ( i == 2) 
+        {
+            cout << term2 << commaOrDot; 
+            continue;
+        }
+
+        nextTerm = term1 + term2;
+        term1 = term2;
+        term2 = nextTerm;
+
+        cout << nextTerm << commaOrDot;
+    }
+
+    cout << endl;
+}
+
+void GreatestCommonDivisor()
+{
+    cout << "Greatest common divisor" << endl;
+
+    int number1, number2;
+    CheckIfValid(number1);
+    CheckIfValid(number2);
+
+    number1 = (number1 > 0) ? number1 : -number1;
+    number2 = (number2 > 0) ? number2 : -number2;
+
+    while ( number1 != number2)
+    {
+        if( number1 > number2) number1 -= number2;
+        if( number2 > number1) number2 -= number1;
+    }
+
+    cout << "GCD = " << number1 << endl;
+    
 }
 
 int main ()
@@ -151,5 +468,20 @@ int main ()
     //PrintSizesOfDataTypes();
     //SwapTwoNumbers();
 
+    // control flow statements
+    //IsNumberEven();
+    //IsCharacterAVowel();
+    //BiggerOfThreeNumbers();
+    //SolveTheQuadraticEquation();
+    //IsLeapYear();
+    //IsPositive();
+    //PrintSumOfInputIterationCount();
+    //PrintCountOfIterationsUntilRandomNumberIsEqualToInputNumber();
+    //IsInputCharacterInEnglishAlphabet();
+    //CalculateFactorialOfInputNumber();
+    //PrintTableOfMultiplicationOfInputNumber();
+    //PrintFibonacciNumbers();
+    GreatestCommonDivisor();
+
     return 0;
-}
+};
