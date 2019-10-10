@@ -4,12 +4,15 @@
 #include <limits>
 #include <cmath>
 #include <iomanip>
+#include <algorithm>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
 using std::setw;
+using std::to_string;
+using std::reverse;
 
 template <typename type>
 void CheckIfValid(type& number)
@@ -115,7 +118,7 @@ void SwapTwoNumbers()
     CheckIfValid(number1);
     CheckIfValid(number2);
 
-    cout << "First tehniques: without additional variable" << endl;
+    cout << "First techniques: without additional variable" << endl;
     cout << " Before swapping " << endl
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
@@ -128,7 +131,7 @@ void SwapTwoNumbers()
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
 
-    cout << "Second tehniques: with additional variable" << endl;
+    cout << "Second techniques: with additional variable" << endl;
     cout << " Before swapping " << endl 
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
@@ -142,7 +145,7 @@ void SwapTwoNumbers()
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
 
-    cout << "Third tehniques: with STL" << endl;
+    cout << "Third techniques: with STL" << endl;
     cout << " Before swapping " << endl 
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
@@ -453,6 +456,126 @@ void GreatestCommonDivisor()
     }
 
     cout << "GCD = " << number1 << endl;
+}
+
+void LeastCommonMultiple()
+{
+    cout << "Least common multiple" << endl;
+
+    int number1, number2, lcm;
+    CheckIfValid(number1);
+    CheckIfValid(number2);
+
+    lcm = (number1 > number2) ? number1 : number2;
+
+    // using infinite loop
+    while (true)
+    {
+        if ( lcm % number1 == 0 && 
+             lcm % number2 == 0 
+           )
+        {
+            cout << "LCM = " << lcm << endl;
+            break;
+        }
+
+        ++lcm;
+    }
+}
+
+void CountTheNumberOfDigits()
+{
+    cout << "CountTheNumberOfDigits" << endl;
+
+    int count = 0;
+    long number;
+    CheckIfValid(number);
+
+    cout << "First techniques" << endl;
+    long temp = number;
+    while ( temp != 0)
+    {
+        temp /= 10;
+        ++count;
+    }
+
+    cout << "The count is: " << count << endl;
+
+    cout << "Second techniques" << endl;
+    number = (number > 0) ? number : -number;
+    count = to_string(number).length();
+
+    cout << "The count is: " << count << endl;
+}
+
+void ReverseNumber()
+{
+    cout << "ReverseNumber" << endl;
+    int number, reversedNumber = 0, remainder;
+    CheckIfValid(number);
+
+    cout << "First techniques" << endl;
+    int temp = number;
+    while (temp != 0 )
+    {
+        remainder = temp%10;
+        reversedNumber = reversedNumber*10 + remainder;
+        temp/=10;
+    }
+    cout << "The reversed number is: " << reversedNumber << endl;
+
+    cout << "Second techniques" << endl;
+    string sNumber = to_string(number);
+    reverse(sNumber.begin(), sNumber.end());
+    cout << "The reversed number is: " << sNumber << endl;
+}
+
+void IsPalindrome()
+{
+    string original, reversed;
+    CheckIfValid(original);
+
+    reversed = original;
+    reverse(reversed.begin(), reversed.end());
+
+    if ( original == reversed)
+    {
+        cout << original << " is a palidrome." << endl;
+    }
+    else
+    {
+        cout << original << " is NOT a palidrome." << endl;
+    }
+}
+
+void IsPrime()
+{
+    int number;
+    CheckIfValid(number);
+
+    // using flag to monitor the result
+    bool isPrime = true;
+
+    for ( int i = 2; i <= number / 2 ; ++i)
+    {
+        if ( number % i == 0)
+        {
+            isPrime = false;
+        }
+    }
+
+    if (isPrime)
+    {
+        cout << number << " is prime." << endl;
+    }
+    else 
+    {
+        cout << number << " is NOT prime." << endl;
+    }
+}
+
+void PrintPrimeNumbersInInterval()
+{
     
 }
 
@@ -481,7 +604,13 @@ int main ()
     //CalculateFactorialOfInputNumber();
     //PrintTableOfMultiplicationOfInputNumber();
     //PrintFibonacciNumbers();
-    GreatestCommonDivisor();
+    //GreatestCommonDivisor();
+    //LeastCommonMultiple();
+    //CountTheNumberOfDigits();
+    //ReverseNumber();
+    //IsPalindrome();
+    //IsPrime();
+    PrintPrimeNumbersInInterval();
 
     return 0;
 };
