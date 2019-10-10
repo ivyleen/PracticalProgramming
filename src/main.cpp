@@ -561,6 +561,7 @@ void IsPrime()
         if ( number % i == 0)
         {
             isPrime = false;
+            break;
         }
     }
 
@@ -576,7 +577,34 @@ void IsPrime()
 
 void PrintPrimeNumbersInInterval()
 {
+    cout << "PrintPrimeNumbersInInterval" << endl;
+
+    int low, high;
+    bool isNotPrime;
+    CheckIfValid(low);
+    CheckIfValid(high);
+
+    //check if low is really lower than high
+    if (low == high) cout << "There is no interval." << endl;
+    low = ( low < high) ? low : high;
+    high = ( high > low) ? high : low;
     
+    while ( low < high)
+    {
+        for ( int i = 2; i <= low / 2 ; ++i)
+        {
+            isNotPrime = false;
+            if ( low % i == 0)
+            {
+                isNotPrime = true;
+            }
+        }
+
+        if (!isNotPrime) cout << low << ", ";
+        ++low;
+    }
+
+    cout << endl;
 }
 
 int main ()
