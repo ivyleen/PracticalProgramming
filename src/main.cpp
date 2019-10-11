@@ -20,7 +20,7 @@ void CheckIfValid(type& number)
     // according to the type we check if the input is valid 
     while (cout << "Enter an input: " && !(cin >> number) || cin.peek() != '\n')
     {
-        cout << "That's not valid input. Try again" << endl;
+        cout << "That's not valid input. Try again." << endl;
         // clear and ignore the unvalid input
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -575,36 +575,224 @@ void IsPrime()
     }
 }
 
+bool IsPrime(int number)
+{
+    // using flag to monitor the result
+    bool isPrime = true;
+
+    for ( int i = 2; i <= number / 2 ; ++i)
+    {
+        if ( number % i == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+
+    return isPrime;
+}
+
 void PrintPrimeNumbersInInterval()
 {
     cout << "PrintPrimeNumbersInInterval" << endl;
 
     int low, high;
-    bool isNotPrime;
+    bool isPrime = true;
     CheckIfValid(low);
     CheckIfValid(high);
 
     //check if low is really lower than high
-    if (low == high) cout << "There is no interval." << endl;
-    low = ( low < high) ? low : high;
-    high = ( high > low) ? high : low;
-    
-    while ( low < high)
+    if (low == high) 
+    {   
+        cout << "There is no interval." << endl; 
+        return;
+    } else if ( low > high) 
+    {
+        int temp = low;
+        low = high;
+        high = temp;
+    }
+
+    cout<< "Prime numbers in the interval are:" << endl;
+    while ( low <= high)
     {
         for ( int i = 2; i <= low / 2 ; ++i)
         {
-            isNotPrime = false;
+            isPrime = true;
             if ( low % i == 0)
             {
-                isNotPrime = true;
+                isPrime = false;
+                break;
             }
         }
 
-        if (!isNotPrime) cout << low << ", ";
+        if (isPrime) cout << low << ", ";
         ++low;
     }
 
     cout << endl;
+}
+
+void IsArmstrongNumber()
+{
+    cout << "IsArmstrongNumber" << endl;
+
+    int number, originalNumber, remainder, count = 0, result = 0;
+    CheckIfValid(originalNumber);
+
+    number = originalNumber;
+    
+    // determine the count of digits
+    while ( number != 0)
+    {
+        number /= 10;
+        ++count;
+    }
+
+    number = originalNumber;
+    // multiply the digits by the count of the digits
+    while ( number != 0)
+    {
+        remainder = number % 10;
+        result += pow(remainder, count);
+        number /= 10;
+    }
+
+    if ( result == originalNumber)
+    {
+        cout << "The number is an Armstrong number." << endl;
+    } else
+    {
+        cout << "The number is NOT an Armstrong number." << endl;
+    }
+    
+}
+
+void PrintArmstrongNumbersInInputInterval()
+{
+    cout << "PrintArmstrongNumbersInInputInterval" << endl;
+
+    int low, originalNumberLow, high, remainder, count = 0, result = 0;
+    CheckIfValid(originalNumberLow);
+    CheckIfValid(high);
+
+    //check if low is really lower than high
+    if (originalNumberLow == high) 
+    {   
+        cout << "There is no interval." << endl; 
+        return;
+    } else if ( originalNumberLow > high) 
+    {
+        int temp = originalNumberLow;
+        originalNumberLow = high;
+        high = temp;
+    }
+
+    for ( int i = originalNumberLow; i <=high; ++i )
+    {
+        count = 0;
+        result = 0;
+
+        low = i;
+        while ( low != 0)
+        {
+            low /= 10;
+            ++count;
+        }
+
+        low = i;
+        while( low != 0)
+        {
+            remainder = low % 10;
+            result += pow(remainder, count);
+            low /= 10;
+        }
+
+        if ( result == i) cout << i << ", ";
+    }
+
+    cout << endl;
+}
+
+void CreateStarPyramid()
+{
+    cout << "Create star pyramid" << endl;
+
+    int rows;
+    do 
+    {
+        CheckIfValid(rows);
+    } while ( rows < 0);
+
+    for (int i = 0; i <= rows; ++i)
+    {
+        for (int j = 0; j <=i; ++j )
+        {
+            cout << "* ";
+        }
+        
+        cout << endl;
+    }
+}
+
+void SimpleCalculator()
+{
+    char ourOperator;
+    double number1, number2;
+    do
+    {
+        cout << "Enter a valid operator." << endl;
+        CheckIfValid(ourOperator);
+    } while (ourOperator != '+' &&
+             ourOperator != '-' &&
+             ourOperator != '*' &&
+             ourOperator != '/');
+
+    cout << "Now enter the numbers." << endl;
+    CheckIfValid(number1);
+    CheckIfValid(number2);
+
+    switch (ourOperator)
+    {
+    case '+':
+        cout << number1 << " + " << number2 << " = " << (number1 + number2) << endl;
+        break;
+    case '-':
+        cout << number1 << " - " << number2 << " = " << (number1 - number2) << endl;
+        break;
+    case '*':
+        cout << number1 << " * " << number2 << " = " << (number1 * number2) << endl;
+        break;
+    case '/':
+        cout << number1 << " / " << number2 << " = " << (number1 / number2) << endl;
+        break;
+    default:
+        cout << "Invalid operator." << endl;
+        break;
+    }
+}
+
+void CanANumberBeRepresentedBySumOfTwoPrimeNumber()
+{
+    int number;
+    bool canBeRepresented = false;
+    CheckIfValid(number);
+
+    // print every posible representation of the number
+    for ( int i = 2; i <= number /2; ++i)
+    {
+        if (IsPrime(i))
+        {
+            if (IsPrime(number - i))
+            {
+                canBeRepresented = true;
+                cout << number << " = " << i << " + " << (number - i) << endl;
+            }
+        }
+    }
+
+    if(!canBeRepresented) 
+        cout << "The number can NOT be represented by two prime numbers." << endl;
 }
 
 int main ()
@@ -638,7 +826,14 @@ int main ()
     //ReverseNumber();
     //IsPalindrome();
     //IsPrime();
-    PrintPrimeNumbersInInterval();
+    //PrintPrimeNumbersInInterval();
+    //IsArmstrongNumber();
+    //PrintArmstrongNumbersInInputInterval();
+    //CreateStarPyramid();
+    CanANumberBeRepresentedBySumOfTwoPrimeNumber();
+
+    // function that can be made as a whole projects
+    //SimpleCalculator();
 
     return 0;
 };
