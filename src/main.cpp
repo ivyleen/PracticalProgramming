@@ -795,6 +795,279 @@ void CanANumberBeRepresentedBySumOfTwoPrimeNumber()
         cout << "The number can NOT be represented by two prime numbers." << endl;
 }
 
+int AddNumbersResursively(int n)
+{
+    if( n != 0)
+    {
+        return n + AddNumbersResursively(n -1);
+    }
+    else 
+    {
+        return n;
+    }
+}
+
+void PrintSumOfNRealNumbers()
+{
+    cout << "PrintSumOfNRealNumbers()" << endl;
+
+    int n;
+    do
+    {
+        CheckIfValid(n);
+    } while ( n < 0);
+
+    cout << "The sum is: " << AddNumbersResursively(n) << endl;
+}
+
+long int factorial( int number)
+{
+    if ( number >=1)
+    {
+        return number*factorial(number - 1);
+    }
+    else 
+    {
+        return 1;
+    }
+}
+
+void CalculateFactorial()
+{
+    cout << "CalculateFactorial" << endl;
+
+    int number;
+    do{
+        CheckIfValid(number);
+    } while ( number < 0);
+
+    cout << "The factorial of " << number << " is: " << factorial(number) << endl;
+}
+
+int gcd( int number1, int number2)
+{
+    if ( number2 != 0)
+    {
+        return gcd( number2, number1%number2);
+    }
+    else 
+    {
+        return number1;
+    }
+}
+
+void CalculateGCD()
+{
+    cout << "CalculateGCD" << endl;
+
+    int number1, number2;
+    do {
+        cout << "Please enter only positive numbers " << endl;
+        CheckIfValid(number1);
+        CheckIfValid(number2);
+    } while ( number1 < 0 || number2 < 0);
+ 
+    cout << "GCD of " << number1 << " and " << number2 << " is: " 
+         << gcd( number1, number2) << endl;
+}
+
+bool CheckIfBinary( long number)
+{
+    while (number > 0)
+    {
+        int reminder = number % 10;
+        if ( reminder != 0 &&
+             reminder != 1)
+        {
+            return false;
+        }
+
+        number /=10;
+        if(number == 0)
+        {
+            return true;
+        }
+    }
+}
+
+bool CheckIfOctal( long number)
+{
+    while (number > 0)
+    {
+        int reminder = number % 10;
+        if ( !(reminder >= 0 &&
+             reminder <= 7))
+        {
+            return false;
+        }
+
+        number /=10;
+        if(number == 0)
+        {
+            return true;
+        }
+    }
+}
+
+void BinaryToDecimal()
+{
+    cout << "BinaryToDecimal" << endl;
+
+    long number = 0;
+    do
+    { 
+        cout << "Enter number" << endl;
+        CheckIfValid(number);
+        
+    } while (!CheckIfBinary(number));
+
+    int decimal = 0, remainder, i = 0;
+
+    while (number != 0 )
+    {
+        remainder = number % 10;
+        number /= 10;
+        decimal += remainder * pow(2,i);
+        ++i;
+    }
+
+    cout << "Converted decimal number is: " << decimal << endl;
+    
+}
+
+void DecimalToBinary()
+{
+    cout << "DecimalToBinary" << endl;
+    long binary = 0;
+    int decimal, remainder, base = 1;
+    CheckIfValid(decimal);
+
+    while ( decimal != 0)
+    {
+        remainder = decimal % 2;
+        decimal /= 2;
+        binary += remainder * base;
+        base*=10;
+    }
+    
+    if ( CheckIfBinary (binary ))
+        cout << "Converted binary number is: " << binary << endl;
+}
+
+void OctalToDecimal()
+{
+    cout << "OctalToDecimal" << endl;
+
+    int octal = 0, decimal = 0, base = 0;
+    do
+    { 
+        cout << "Enter number" << endl;
+        CheckIfValid(octal);
+        
+    } while (!CheckIfOctal(octal));
+
+    while (octal != 0)
+    {
+        decimal += (octal % 10 ) * pow(8, base);
+        ++base;
+        octal /= 10;
+    }
+    
+    cout << "Converted decimal number is: " << decimal << endl;
+}
+
+void DecimalToOctal()
+{
+    cout << "DecimalToOctal" << endl;
+    
+    int decimal;
+    CheckIfValid(decimal);
+
+    int octal = 0, base = 1;
+
+    while( decimal != 0)
+    {
+        octal += (decimal % 8) * base;
+        decimal /= 8;
+        base *= 10;
+    }
+
+    if ( CheckIfOctal(octal) )
+        cout << "Converted octal number is: " << octal << endl;
+}
+
+void BinaryToOctal()
+{
+    cout << "BinaryToOctal" << endl;
+
+    long binary;
+    do
+    {
+        CheckIfValid(binary);
+    } while (!CheckIfBinary(binary));
+    
+    int octal = 0, decimal = 0, base = 0;
+
+    while ( binary != 0)
+    {
+        decimal += (binary % 10) * pow(2, base);
+        ++base;
+        binary /= 10;
+    }
+
+    base = 1;
+    while ( decimal != 0)
+    {
+        octal += (decimal % 8) * base;
+        decimal /= 8;
+        base *= 10;
+    }
+
+    cout << "The converted octal number is: " << octal << endl;
+}
+
+void OctalToBinary()
+{
+    cout << "OctalToBinary" << endl;
+
+    int octal, decimal = 0, base = 0; 
+    long binary;
+    do
+    {
+        CheckIfValid(octal);
+    } while (!CheckIfOctal(octal));
+
+    while ( octal != 0)
+    {
+        decimal += (octal % 10) * pow(8, base);
+        ++base;
+        octal /= 10;
+    }
+
+    base = 1;
+
+    while ( decimal != 0 )
+    {
+        binary += (decimal % 2) * base;
+        decimal /= 2;
+        base *= 10;
+    }
+
+    cout << "The converted binary number is: " << binary << endl;
+}
+
+void ReverseSentence()
+{
+    char c;
+    scanf("%c", &c);
+
+    if(c != '\n')
+    {
+        ReverseSentence();
+        cout << c ;
+    }
+}
+
 int main ()
 {
     // basics
@@ -830,10 +1103,24 @@ int main ()
     //IsArmstrongNumber();
     //PrintArmstrongNumbersInInputInterval();
     //CreateStarPyramid();
-    CanANumberBeRepresentedBySumOfTwoPrimeNumber();
+    //CanANumberBeRepresentedBySumOfTwoPrimeNumber();
 
     // function that can be made as a whole projects
     //SimpleCalculator();
+
+    // recursive examples
+    //PrintSumOfNRealNumbers();
+    //CalculateFactorial();
+    //CalculateGCD();
+    //ReverseSentence();
+
+    // number systems
+    //BinaryToDecimal();
+    //DecimalToBinary();
+    //OctalToDecimal();
+    //DecimalToOctal();
+    //BinaryToOctal();
+    //OctalToBinary();
 
     return 0;
 };
