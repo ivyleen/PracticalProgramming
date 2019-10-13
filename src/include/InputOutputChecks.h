@@ -2,10 +2,10 @@
 #include "IncludeLibraries.h"
 
 template <typename type>
-void CheckIfValid(type& number)
+void CheckIfValid(type& input)
 {
     // according to the type we check if the input is valid 
-    while (cout << "Enter an input: " && !(cin >> number) || cin.peek() != '\n')
+    while (cout << "Enter an input: " && !(cin >> input) || cin.peek() != '\n')
     {
         cout << "That's not valid input. Try again." << endl;
         // clear and ignore the unvalid input

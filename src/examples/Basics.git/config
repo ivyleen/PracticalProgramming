@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = https://github.com/ivyleen/Basics.git
+	fetch = +refs/*:refs/*
+	mirror = true
+[remote "new-origin"]
+	url = https://github.com/ivyleen/PracticalProgramming.git
+	fetch = +refs/heads/*:refs/remotes/new-origin/*
