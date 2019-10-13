@@ -10,6 +10,8 @@
             "args": [
                 "-std=c++17",
                 "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}/src/examples/Working_with_arrays/*.cpp",
+                "${workspaceFolder}/src/examples/Working_with_arrays/Ex3/*.cpp",
                 "-o",
                 "application"
             ],
