@@ -4,21 +4,7 @@
 //#define DEBUG
 
 // includes
-#include <vector>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
-#include <iostream>
-#include <array>
-#include <iomanip>
-
-using std::vector;
-using std::cout;
-using std::endl;
-using std::array;
-using std::rand;
-using std::srand;
-using std::setw;
-using std::string;
+#include "../../include/IncludeLibraries.h"
 
 class Ex2
 {

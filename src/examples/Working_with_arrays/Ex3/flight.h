@@ -5,15 +5,7 @@
 
 #include "seat.h"
 
-#include <iostream>
-#include <array>
-#include <string>
-
-using std::cout;
-using std::cin;
-using std::endl;
-using std::array;
-using std::string;
+#include "../../../include/IncludeLibraries.h"
 
 static const unsigned char NUMBER_OF_SEATS = 10;
 

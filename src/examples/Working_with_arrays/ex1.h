@@ -4,15 +4,7 @@
 #define DEBUG
 
 // includes
-#include <iostream>
-#include <iomanip>
-#include <vector>
-
-using std::vector;
-using std::array;
-using std::cout;
-using std::setw;
-using std::endl;
+#include "../../include/IncludeLibraries.h"
 
 
 class Ex1

@@ -2,12 +2,7 @@
 #define EX3_H
 
 #include "flight.h"
-
-#include <vector>
-#include <array>
-
-using std::vector;
-using std::array;
+#include "../../../include/IncludeLibraries.h"
 
 class Ex3
 {
