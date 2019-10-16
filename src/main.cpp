@@ -60,7 +60,9 @@ int main ()
     //OctalToBinary();
 
     // working with arrays
-    ChooseExampleWithArrays(1);
+    //ChooseExampleWithArrays(1);
+    //CalculateAvarageValueOfArray();
+    LargestNumberInArray();
     
     return 0;
 };

@@ -46,7 +46,12 @@
 			"streambuf": "cpp",
 			"typeinfo": "cpp",
 			"ctime": "cpp",
-			"iomanip": "cpp"
+			"iomanip": "cpp",
+			"chrono": "cpp",
+			"cstring": "cpp",
+			"iterator": "cpp",
+			"ratio": "cpp",
+			"thread": "cpp"
 		}
 	}
 }

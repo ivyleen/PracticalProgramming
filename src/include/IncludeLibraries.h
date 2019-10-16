@@ -11,6 +11,7 @@
 #include <array>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
+#include <iterator>
 
 using std::cout;
 using std::cin;
@@ -23,3 +24,5 @@ using std::vector;
 using std::array;
 using std::rand;
 using std::srand;
+using std::copy;
+using std::ostream_iterator;

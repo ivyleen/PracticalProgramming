@@ -1,11 +1,9 @@
 #ifndef EX1_H
 #define EX1_H
 
-#define DEBUG
-
 // includes
 #include "../../include/IncludeLibraries.h"
-
+#include "../../include/Debug.h"
 
 class Ex1
 {

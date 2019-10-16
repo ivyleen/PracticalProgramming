@@ -13,3 +13,15 @@ void CheckIfValid(type& input)
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }
+
+ void CheckIfValidSizeOfArray(int &size)
+{
+    while (cout << "Enter correct array size: " && !(cin >> size) 
+            || cin.peek() != '\n' || size <= 0)
+    {
+        cout << "That's not valid input. Try again." << endl;
+        // clear and ignore the unvalid input
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+}
