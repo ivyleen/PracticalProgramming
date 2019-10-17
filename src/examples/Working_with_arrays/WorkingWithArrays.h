@@ -57,20 +57,49 @@ void LargestNumberInArray()
 
 void AddTwoMultiDimensionalArrays()
 {
-    int sizeFirstI, sizeFirstJ, sizeSecondI, sizeSecondJ;
-    CheckIfValidSizeOfArray(sizeFirstI);
-    CheckIfValidSizeOfArray(sizeFirstJ);
-    CheckIfValidSizeOfArray(sizeSecondI);
-    CheckIfValidSizeOfArray(sizeSecondJ);
+    int rows, colums;
+    cout << " Rows :" << endl;
+    CheckIfValidSizeOfArray(rows);
+    cout << " Colums :" << endl;
+    CheckIfValidSizeOfArray(colums);
+    // initialize three vectors with that many rows and colums
+    vector<vector<int>> v_array1(rows, vector<int> (colums, 0) );
+    vector<vector<int>> v_array2(rows, vector<int> (colums, 0) );
+    vector<vector<int>> v_Sum(rows, vector<int> (colums, 0) );
 
     cout << "Enter the elements of the first array:" << endl;
-    for ( int i = 0; i < sizeFirstI; ++i)
+    for ( int i = 0; i < v_array1.size(); ++i)
     {
-        for ( int j = 0; j < sizeFirstJ; ++i)
+        for ( int j = 0; j < v_array1.at(i).size(); ++j)
         {
-            // TODO
+            cout << i+1 << " - " << j+1 << "#: " << endl;
+            cin >> v_array1.at(i).at(j);
         }
     }
+
+    cout << "Enter the elements of the second array:" << endl;
+    for ( int i = 0; i < v_array2.size(); ++i)
+    {
+        for ( int j = 0; j < v_array2.at(i).size(); ++j)
+        {
+            cout << i+1 << " - " << j+1 << "#: " << endl;
+            cin >> v_array2.at(i).at(j);
+        }
+    }
+
+    PrintMultidimensionalVector(v_array1);
+    PrintMultidimensionalVector(v_array2);
+
+        for ( int i = 0; i < v_array2.size(); ++i)
+    {
+        for ( int j = 0; j < v_array2.at(i).size(); ++j)
+        {
+            v_Sum.at(i).at(j) = v_array1.at(i).at(j) + v_array2.at(i).at(j);
+        }
+    }
+
+    cout << "The sum of the elements of the two multidimensional arrays:" << endl;
+    PrintMultidimensionalVector(v_Sum);
 }
 
 void ChooseExampleWithArrays(int number)
