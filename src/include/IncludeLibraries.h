@@ -26,3 +26,4 @@ using std::rand;
 using std::srand;
 using std::copy;
 using std::ostream_iterator;
+using std::ostream;

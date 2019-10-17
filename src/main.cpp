@@ -63,7 +63,9 @@ int main ()
     //ChooseExampleWithArrays(1);
     //CalculateAvarageValueOfArray();
     //LargestNumberInArray();
-    AddTwoMultiDimensionalArrays();
+    //AddTwoMultiDimensionalArrays();
+    //Multiply2DimensionalArrays();
+    MakeTransposeArray();
     
     return 0;
 };

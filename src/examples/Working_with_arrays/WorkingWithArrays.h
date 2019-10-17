@@ -62,10 +62,11 @@ void AddTwoMultiDimensionalArrays()
     CheckIfValidSizeOfArray(rows);
     cout << " Colums :" << endl;
     CheckIfValidSizeOfArray(colums);
+
     // initialize three vectors with that many rows and colums
-    vector<vector<int>> v_array1(rows, vector<int> (colums, 0) );
-    vector<vector<int>> v_array2(rows, vector<int> (colums, 0) );
-    vector<vector<int>> v_Sum(rows, vector<int> (colums, 0) );
+    vector< vector<int> > v_array1(rows, vector<int> (colums, 0) );
+    vector< vector<int> > v_array2(rows, vector<int> (colums, 0) );
+    vector< vector<int> > v_Sum(rows, vector<int> (colums, 0) );
 
     cout << "Enter the elements of the first array:" << endl;
     for ( int i = 0; i < v_array1.size(); ++i)
@@ -100,6 +101,141 @@ void AddTwoMultiDimensionalArrays()
 
     cout << "The sum of the elements of the two multidimensional arrays:" << endl;
     PrintMultidimensionalVector(v_Sum);
+}
+
+void Multiply2DimensionalArrays()
+{
+    //To multiply two matrices, the number of columns of first 
+    //matrix should be equal to the number of rows to second matrix
+    int rowCountFirst, columCountFirst, rowCountSecond, columCountSecond;
+
+    do
+    {
+        cout << "REMINDER!: the colum count of the first matrix \n"
+                " must be equal to the row count of the second matrix.\n"
+                "Please, enter a number between 1 and 10." << endl;
+        cout << "Enter row and colum count [matrix 1]: " << endl;
+        CheckIfValidSizeOfArray(rowCountFirst);
+        CheckIfValidSizeOfArray(columCountFirst);
+        cout << "Enter row and colum count [matrix 2]: " << endl;
+        CheckIfValidSizeOfArray(rowCountSecond);
+        CheckIfValidSizeOfArray(columCountSecond);
+    } while (columCountFirst != rowCountSecond ||
+            ( rowCountFirst > 10 &&
+            columCountFirst > 10 &&
+            rowCountSecond > 10 &&
+            columCountSecond >10) );
+
+    // this example will be with static array
+    int firstArray[10][10], secondArray[10][10], resultArray[10][10];
+
+    cout << "Enter the elements of the first Array." << endl;
+    for ( int i = 0; i < rowCountFirst; ++i)
+    {
+        for ( int j = 0; j < columCountFirst; ++j)
+        {
+            cout << i+1 << " - " << j+1 << "#: ";
+            cin >> firstArray[i][j];
+        }
+    }
+
+    cout << "Enter the elements of the second Array." << endl;
+    for ( int i = 0; i < rowCountFirst; ++i)
+    {
+        for ( int j = 0; j < columCountFirst; ++j)
+        {
+            cout << i+1 << " - " << j+1 << "#: ";
+            cin >> secondArray[i][j];
+        }
+    }
+
+    // set default value for the elements of the result array
+    for ( int i = 0; i < rowCountFirst; ++i)
+    {
+        for ( int j = 0; j < columCountSecond; ++j)
+        {
+                resultArray[i][j] = 0;
+        }
+    }
+
+    // multiply the two arrays
+    // we multiply every posible combination of 
+    // the rows of first array * colums of the second array
+    for ( int i = 0; i < rowCountFirst; ++i)
+    {
+        for ( int j = 0; j < columCountSecond; ++j)
+        {
+            for ( int k = 0; k < columCountFirst; ++k)
+            {
+                resultArray[i][j] += firstArray[i][k] * secondArray[k][j];
+#ifdef DEBUG
+                cout << i << "/" << j << "=" << resultArray[i][j] << 
+                    "   (k = " << k << ")" << endl;
+#endif
+            }
+        }
+    }
+
+    cout << "The result matrix is:" << endl;
+    for ( int i = 0; i < rowCountFirst; ++i)
+    {
+        for ( int j = 0; j < columCountSecond; ++j)
+        {
+            cout << resultArray[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void MakeTransposeArray()
+{
+    // transpose array is array with swaped rows and colums
+    int rowCount, columCount;
+    do 
+    {
+        cout << "Enter row and colum count: " << endl;
+        CheckIfValidSizeOfArray(rowCount);
+        CheckIfValidSizeOfArray(columCount);
+    } while ( rowCount > 10 && columCount > 10);
+
+    //we use the STD array 
+    // and make every element zero
+    array< array <int, 10>, 10 > arr {};
+    array< array <int, 10>, 10 > tranposeArr{};
+
+    cout << "Enter elements of the array:" << endl;
+    for (int i = 0 ; i < rowCount; ++i)
+    {
+        for ( int j = 0 ; j < columCount; ++j)
+        {
+            cout << i+1 << "/" << j+1 << "#: ";
+            cin >> arr.at(i).at(j);
+        }
+    }
+
+    cout << "Before : " << endl;
+    for (int i = 0; i < rowCount; ++i)
+    {
+        cout << arr.at(i);
+        cout << endl;
+    }
+
+    for ( int i = 0 ; i < rowCount; ++i)
+    {
+        for ( int j = 0; j < columCount; ++j)
+        {
+            tranposeArr.at(i).at(j) = arr.at(j).at(i);
+        }
+    }
+
+    cout << "After :" << endl;
+    for (int i = 0; i < rowCount; ++i)
+    {
+        cout << tranposeArr.at(i);
+        cout << endl;
+    }
+
+    // TODO : make printing to what we need not the whole array
 }
 
 void ChooseExampleWithArrays(int number)
