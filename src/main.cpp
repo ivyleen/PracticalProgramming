@@ -65,7 +65,8 @@ int main ()
     //LargestNumberInArray();
     //AddTwoMultiDimensionalArrays();
     //Multiply2DimensionalArrays();
-    MakeTransposeArray();
+    //MakeTransposeArray();
+    AccessingValueOfArrayWithPointers();
     
     return 0;
 };

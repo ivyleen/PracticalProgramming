@@ -238,6 +238,28 @@ void MakeTransposeArray()
     // TODO : make printing to what we need not the whole array
 }
 
+void AccessingValueOfArrayWithPointers()
+{
+    int data[5] = {0};
+    printf("Enter 5 items: ");
+    
+    for(int i = 0; i < 5; ++i)
+    {
+        scanf("%d", data + i );
+    }
+
+    printf("Array: ");
+    for(int i = 0 ; i < 5; ++i)
+    {
+        printf("%d ", *(data + i));
+    }
+}
+
+void SwapInCycleOrderElementsInArray()
+{
+    
+}
+
 void ChooseExampleWithArrays(int number)
 {
 
