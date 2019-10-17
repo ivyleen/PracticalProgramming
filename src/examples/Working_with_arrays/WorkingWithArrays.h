@@ -19,7 +19,7 @@ void CalculateAvarageValueOfArray()
     for (int i = 0; i < size; ++i)
     {
         cout << i+1 << "#: " ;
-        cin >> v_Array.at(i);
+        CheckIfValidInputForArrayElement( v_Array.at(i) );
         sum += v_Array.at(i);
     }
 
@@ -43,7 +43,7 @@ void LargestNumberInArray()
     for (int i = 0; i < v_Array.size(); ++i)
     {
         cout << i+1 << "#: " ;
-        cin >> v_Array.at(i);
+        CheckIfValidInputForArrayElement(v_Array.at(i));
 
         if(largest < v_Array.at(i))
         {
@@ -74,7 +74,7 @@ void AddTwoMultiDimensionalArrays()
         for ( int j = 0; j < v_array1.at(i).size(); ++j)
         {
             cout << i+1 << " - " << j+1 << "#: " << endl;
-            cin >> v_array1.at(i).at(j);
+            CheckIfValidInputForArrayElement(v_array1.at(i).at(j));
         }
     }
 
@@ -84,7 +84,7 @@ void AddTwoMultiDimensionalArrays()
         for ( int j = 0; j < v_array2.at(i).size(); ++j)
         {
             cout << i+1 << " - " << j+1 << "#: " << endl;
-            cin >> v_array2.at(i).at(j);
+            CheckIfValidInputForArrayElement(v_array2.at(i).at(j));
         }
     }
 
@@ -135,7 +135,7 @@ void Multiply2DimensionalArrays()
         for ( int j = 0; j < columCountFirst; ++j)
         {
             cout << i+1 << " - " << j+1 << "#: ";
-            cin >> firstArray[i][j];
+            CheckIfValidInputForArrayElement(firstArray[i][j]);
         }
     }
 
@@ -145,7 +145,7 @@ void Multiply2DimensionalArrays()
         for ( int j = 0; j < columCountFirst; ++j)
         {
             cout << i+1 << " - " << j+1 << "#: ";
-            cin >> secondArray[i][j];
+            CheckIfValidInputForArrayElement(secondArray[i][j]);
         }
     }
 
@@ -209,7 +209,7 @@ void MakeTransposeArray()
         for ( int j = 0 ; j < columCount; ++j)
         {
             cout << i+1 << "/" << j+1 << "#: ";
-            cin >> arr.at(i).at(j);
+            CheckIfValidInputForArrayElement(arr.at(i).at(j));
         }
     }
 

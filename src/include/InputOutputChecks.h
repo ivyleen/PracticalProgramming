@@ -28,8 +28,20 @@ void CheckIfValid(type& input)
     }
 }
 
+template <typename type>
+void CheckIfValidInputForArrayElement(type &input)
+{
+    while (!(cin >> input) || cin.peek() != '\n')
+    {
+        cout << "That's not valid input. Try again." << endl;
+        // clear and ignore the unvalid input
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+}
+
 // overloading operator << to print std::arrays
-template <class T, std::size_t N>
+template <typename T, std::size_t N>
 ostream& operator <<(ostream& o, const array<T, N>& arr)
 {
     copy(arr.cbegin(), arr.cend(), ostream_iterator<T>(o, ", "));
