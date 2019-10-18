@@ -27,3 +27,5 @@ using std::srand;
 using std::copy;
 using std::ostream_iterator;
 using std::ostream;
+using std::unique_ptr;
+using std::make_unique;

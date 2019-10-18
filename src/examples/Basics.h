@@ -131,3 +131,31 @@ void SwapTwoNumbers()
          << "  number 1: " << number1 << endl
          << "  number2: " << number2 << "." << endl;
 }
+
+
+void SwapNumbersInCycleOrder()
+{
+    int a, b, c, temp, a1, b1, c1;
+    CheckIfValid(a);
+    CheckIfValid(b);
+    CheckIfValid(c);
+
+    cout << "Before: " << a << ", " << b << ", " << c << "." << endl;
+
+    cout << "First techniques: last becomes first:" << endl;
+    a1=a; b1=b; c1=c;
+
+    temp = b1;
+    b1 = a1;
+    a1 = c1;
+    c1 = temp;
+    cout << "After: " << a1 << ", " << b1 << ", " << c1 << "." << endl;    
+
+    cout << "Second techniques: first becomes last:" << endl;
+    temp = a;
+    a = b;
+    b = c;
+    c = temp;
+
+    cout << "After: " << a << ", " << b << ", " << c << "." << endl;    
+}

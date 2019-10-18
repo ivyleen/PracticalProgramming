@@ -16,6 +16,7 @@ int main ()
     //PrintQuotientAndReminder();
     //PrintSizesOfDataTypes();
     //SwapTwoNumbers();
+    //SwapNumbersInCycleOrder();
 
     // control flow statements
     //IsNumberEven();
@@ -66,7 +67,9 @@ int main ()
     //AddTwoMultiDimensionalArrays();
     //Multiply2DimensionalArrays();
     //MakeTransposeArray();
-    AccessingValueOfArrayWithPointers();
+    //AccessingValueOfArrayWithPointers();
+    FindBiggestNumberInDynamicMemory();
+
     
     return 0;
 };

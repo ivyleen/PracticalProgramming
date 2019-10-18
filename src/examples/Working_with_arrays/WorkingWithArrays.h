@@ -240,6 +240,7 @@ void MakeTransposeArray()
 
 void AccessingValueOfArrayWithPointers()
 {
+    //working with static arrays
     int data[5] = {0};
     printf("Enter 5 items: ");
     
@@ -255,9 +256,32 @@ void AccessingValueOfArrayWithPointers()
     }
 }
 
-void SwapInCycleOrderElementsInArray()
+void FindBiggestNumberInDynamicMemory()
 {
-    
+    int size;
+    CheckIfValidSizeOfArray(size);
+
+    // making unique_ptr to array with size 'size'
+    unique_ptr<float []> data =  make_unique<float[]> (size);
+
+    cout << "Enter elements:" << endl;
+    for ( int i = 0; i < size ; ++i)
+    {
+        cout << i + 1 << "#: " ;
+        CheckIfValidInputForArrayElement(data[i]);
+    }
+
+    float max = data[0];
+
+    for ( int i = 0; i < size; ++i)
+    {
+        if (max < data[i])
+        {
+            max = data[i];
+        }
+    }
+
+    cout << "The biggest number is: " << max << endl;
 }
 
 void ChooseExampleWithArrays(int number)
