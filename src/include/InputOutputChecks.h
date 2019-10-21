@@ -16,7 +16,7 @@ void CheckIfValid(type& input)
     }
 }
 
- void CheckIfValidSizeOfArray(int &size)
+void CheckIfValidSizeOfArray(int &size)
 {
     while (cout << "Enter correct array size: " && !(cin >> size) 
             || cin.peek() != '\n' || size <= 0)
@@ -46,4 +46,15 @@ ostream& operator <<(ostream& o, const array<T, N>& arr)
 {
     copy(arr.cbegin(), arr.cend(), ostream_iterator<T>(o, ", "));
     return o;
+}
+
+ void CheckIfValidStringLine(string& line)
+{
+    while (cout << "Enter string line: " && !getline(cin, line))
+    {
+        cout << "That's not valid input. Try again." << endl;
+        // clear and ignore the unvalid input
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 }

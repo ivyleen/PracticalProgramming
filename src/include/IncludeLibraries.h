@@ -12,6 +12,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <iterator>
+#include <unordered_map>
 
 using std::cout;
 using std::cin;
@@ -29,3 +30,5 @@ using std::ostream_iterator;
 using std::ostream;
 using std::unique_ptr;
 using std::make_unique;
+using std::unordered_map;
+using std::getline;

@@ -3,6 +3,7 @@
 #include "examples/ControlFlowStatementsExamples.h"
 #include "examples/RecursiveExamples.h"
 #include "examples/Working_with_arrays/WorkingWithArrays.h"
+#include "examples/Working_with_strings/Working_with_strings.h"
 
 int main ()
 {
@@ -68,8 +69,13 @@ int main ()
     //Multiply2DimensionalArrays();
     //MakeTransposeArray();
     //AccessingValueOfArrayWithPointers();
-    FindBiggestNumberInDynamicMemory();
+    //FindBiggestNumberInDynamicMemory();
 
+    // working with string
+    //CharsFrequencyInString();
+    //FrequencyOfLettersInString();
+    //CountNumbersAndSpacesInStringLine();
+    RemoveAllSymbolsAcceptNumbers();
     
     return 0;
 };
