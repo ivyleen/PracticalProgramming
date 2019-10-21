@@ -1,5 +1,6 @@
 #pragma once
 #include "IncludeLibraries.h"
+#include "../examples/Working_with_struct/StructDefinitions.h"
 
 template <typename type>
 void CheckIfValid(type& input)
@@ -54,7 +55,7 @@ ostream& operator <<(ostream& o, const vector<T>& vec)
     return o;
 }
 
- void CheckIfValidStringLine(string& line)
+void CheckIfValidStringLine(string& line)
 {
     while (cout << "Enter string line: " && !getline(cin, line))
     {
@@ -63,4 +64,14 @@ ostream& operator <<(ostream& o, const vector<T>& vec)
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+}
+
+template < typename T>
+void CheckIfValidComplexNumber( ComplexNumbers<T> complex)
+{
+    // according to the type we check if the input is valid 
+    cout << "Real part" << endl;
+    CheckIfValid(complex.real);
+    cout << "Imag part" << endl;
+    CheckIfValid(complex.imag);
 }

@@ -4,6 +4,7 @@
 #include "examples/RecursiveExamples.h"
 #include "examples/Working_with_arrays/WorkingWithArrays.h"
 #include "examples/Working_with_strings/Working_with_strings.h"
+#include "examples/Working_with_struct/Working_with_struct.h"
 
 int main ()
 {
@@ -76,7 +77,11 @@ int main ()
     //FrequencyOfLettersInString();
     //CountNumbersAndSpacesInStringLine();
     //RemoveAllSymbolsAcceptNumbers();
-    SortStringInLecsographicOrder();
+    //SortStringInLecsographicOrder();
+
+    // working with structs
+    //InputStudentInfo();
+    AddTwoComplexNumbers();
     
     return 0;
 };
