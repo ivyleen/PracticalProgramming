@@ -84,3 +84,21 @@ void RemoveAllSymbolsAcceptNumbers()
         cout << "There not any numbers in the line." << endl;
 }
 
+void SortStringInLecsographicOrder()
+{
+    vector<string> cities;
+    string buffer, data;
+    CheckIfValidStringLine(buffer);
+    istringstream iss(buffer);
+    while (iss >> data)
+    {
+        cities.push_back(data);
+    }
+
+    cout << "First technique:" << endl;
+    sort ( cities.begin(), cities.end());
+
+    // TODO : sort without a stl function
+
+    cout << cities << endl;
+ }

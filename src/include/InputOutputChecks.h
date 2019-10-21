@@ -1,8 +1,6 @@
 #pragma once
 #include "IncludeLibraries.h"
 
-//TODO : make a check for input elements in array
-
 template <typename type>
 void CheckIfValid(type& input)
 {
@@ -45,6 +43,14 @@ template <typename T, std::size_t N>
 ostream& operator <<(ostream& o, const array<T, N>& arr)
 {
     copy(arr.cbegin(), arr.cend(), ostream_iterator<T>(o, ", "));
+    return o;
+}
+
+// overloading operator << to print std::vector
+template <typename T>
+ostream& operator <<(ostream& o, const vector<T>& vec)
+{
+    copy(vec.cbegin(), vec.cend(), ostream_iterator<T>(o, ", "));
     return o;
 }
 

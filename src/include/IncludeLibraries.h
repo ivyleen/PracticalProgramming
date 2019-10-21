@@ -13,6 +13,7 @@
 #include <time.h>       /* time */
 #include <iterator>
 #include <unordered_map>
+#include <cstring>
 
 using std::cout;
 using std::cin;
@@ -32,3 +33,6 @@ using std::unique_ptr;
 using std::make_unique;
 using std::unordered_map;
 using std::getline;
+using std::sort;
+using std::strcmp;
+using std::istringstream;

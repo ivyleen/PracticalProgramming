@@ -75,7 +75,8 @@ int main ()
     //CharsFrequencyInString();
     //FrequencyOfLettersInString();
     //CountNumbersAndSpacesInStringLine();
-    RemoveAllSymbolsAcceptNumbers();
+    //RemoveAllSymbolsAcceptNumbers();
+    SortStringInLecsographicOrder();
     
     return 0;
 };
