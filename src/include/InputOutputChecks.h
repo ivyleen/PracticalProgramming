@@ -67,7 +67,7 @@ void CheckIfValidStringLine(string& line)
 }
 
 template < typename T>
-void CheckIfValidComplexNumber( ComplexNumbers<T> complex)
+void CheckIfValidComplexNumber( ComplexNumbers<T>& complex)
 {
     // according to the type we check if the input is valid 
     cout << "Real part" << endl;
