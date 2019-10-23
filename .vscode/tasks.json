@@ -12,6 +12,7 @@
                 "${workspaceFolder}/src/*.cpp",
                 "${workspaceFolder}/src/examples/Working_with_arrays/*.cpp",
                 "${workspaceFolder}/src/examples/Working_with_arrays/Ex3/*.cpp",
+                "${workspaceFolder}/src/examples/Working_with_classes/*.cpp",
                 "-o",
                 "application"
             ],

@@ -5,6 +5,7 @@
 #include "examples/Working_with_arrays/WorkingWithArrays.h"
 #include "examples/Working_with_strings/Working_with_strings.h"
 #include "examples/Working_with_struct/Working_with_struct.h"
+#include "examples/Working_with_classes/Working_with_classes.h"
 
 int main ()
 {
@@ -81,7 +82,10 @@ int main ()
 
     // working with structs
     //InputStudentInfo();
-    AddTwoComplexNumbers();
+    //AddTwoComplexNumbers();
+
+    // working with classes
+    WorkWithGenericStack();
     
     return 0;
 };
