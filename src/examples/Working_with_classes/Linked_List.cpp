@@ -2,10 +2,11 @@
 
 
 // add a Node at the front of the list
-void SinglyLinkedList::Push(Node** head, int data)
+template <typename T>
+void SinglyLinkedList<T>::Push(Node<T>** head, T data)
 {
     // allocate new Node
-    Node* new_node = new Node();
+    Node<T>* new_node = new Node<T>();
 
     // put the data into the new Node
     new_node->data = data;
@@ -18,7 +19,8 @@ void SinglyLinkedList::Push(Node** head, int data)
 }
 
 // add a Node after a given Node
-void SinglyLinkedList::InsertAfterANode(Node* previous, int data)
+template <typename T>
+void SinglyLinkedList<T>::InsertAfterANode(Node<T>* previous, T data)
 {
     if ( !previous)
     {
@@ -27,7 +29,7 @@ void SinglyLinkedList::InsertAfterANode(Node* previous, int data)
     }
 
     // allocate new Node
-    Node* new_node = new Node();
+    Node<T>* new_node = new Node<T>();
 
     // put the data in it
     new_node->data = data;
@@ -40,10 +42,11 @@ void SinglyLinkedList::InsertAfterANode(Node* previous, int data)
 }
 
 // add a Node at the end
-void SinglyLinkedList::Append(Node** head, int data)
+template <typename T>
+void SinglyLinkedList<T>::Append(Node<T>** head, T data)
 {
     // allocate new Node
-    Node* new_node = new Node();
+    Node<T>* new_node = new Node<T>();
 
     // put the data in it
     new_node->data = data;
@@ -59,7 +62,7 @@ void SinglyLinkedList::Append(Node** head, int data)
     }
 
     // if it's not empty traverse to the last existing Node
-    Node* last = *head;
+    Node<T>* last = *head;
 
     while (last->next)
     {
@@ -71,9 +74,10 @@ void SinglyLinkedList::Append(Node** head, int data)
 }
 
 // delete a Node by passing the data which needs to be deleted
-void SinglyLinkedList::DeleteNode( Node** head, int data)
+template <typename T>
+void SinglyLinkedList<T>::DeleteNode( Node<T>** head, T data)
 {
-    Node* storedHead = *head , *previous;
+    Node<T>* storedHead = *head , *previous;
 
     // if head stores the data to be deleted
     if ( storedHead && storedHead->data == data)
@@ -110,7 +114,8 @@ void SinglyLinkedList::DeleteNode( Node** head, int data)
 }
 
 // deleting a Node by given position
-void SinglyLinkedList::DeleteNodeByPosition( Node** head, int position)
+template <typename T>
+void SinglyLinkedList<T>::DeleteNodeByPosition( Node<T>** head, int position)
 {
     // if linked list is empty
     if (!head)
@@ -120,7 +125,7 @@ void SinglyLinkedList::DeleteNodeByPosition( Node** head, int position)
     }
 
     // store head Node
-    Node* storedHead = *head;
+    Node<T>* storedHead = *head;
 
     // if head needs to be deleted
     if ( position == 0 )
@@ -148,7 +153,7 @@ void SinglyLinkedList::DeleteNodeByPosition( Node** head, int position)
 
     // Node storedHead->next is the node to be deleted
     // store point to the next of node to be deleted
-    Node* next = storedHead->next->next;
+    Node<T>* next = storedHead->next->next;
 
     // unlink the Node from the list
     storedHead->next = nullptr;
@@ -157,3 +162,4 @@ void SinglyLinkedList::DeleteNodeByPosition( Node** head, int position)
     // unlink the deleted Node from list
     storedHead->next = next;
 }
+

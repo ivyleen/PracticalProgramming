@@ -17,10 +17,11 @@
 // base class
 // A linked list is represented by a pointer to the first node. 
 // Each node in a list consists of at least two parts:
+template <typename T>
 class Node 
 {
 public:
-    int data;
+    T data;
     // the first node is called head
     // if head == nullptr that the list is empty
     struct Node* next;
@@ -45,22 +46,23 @@ public:
 };
 
 // child of Node
-class SinglyLinkedList : Node
+template <typename T>
+class SinglyLinkedList : Node<T>
 {
 
 public:
     // add a Node at the front of the list
-    void Push(Node** head, int data);
+    void Push(Node<T>** head, T data);
 
     // add a Node after a given Node
-    void InsertAfterANode(Node* previous, int data);
+    void InsertAfterANode(Node<T>* previous, T data);
 
     // add a Node at the end
-    void Append(Node** head, int data);
+    void Append(Node<T>** head, T data);
 
     // delete a Node by passing the data which needs to be deleted
-    void DeleteNode( Node** head, int data);
+    void DeleteNode( Node<T>** head, T data);
 
     // deleting a Node by given position
-    void DeleteNodeByPosition( Node** head, int position);
+    void DeleteNodeByPosition( Node<T>** head, int position);
 };
