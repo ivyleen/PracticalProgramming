@@ -16,3 +16,13 @@ void WorkWithGenericStack()
         arr[i].Print();
     }
 }
+
+void WorkingWithLinkedList()
+{
+    // TODO:
+    // 1 ) fix the corelations between the classes with a thought of making the doubly 
+    // linked list and circular linked list, make documentation
+    // 2 ) make a singlylinkedlist with constructor
+    // 3 ) destroy the list so you can debug it
+
+}
