@@ -1,5 +1,6 @@
 #pragma once
 #include "GenericStack.h"
+#include "Linked_List.h"
 
 void WorkWithGenericStack()
 {
