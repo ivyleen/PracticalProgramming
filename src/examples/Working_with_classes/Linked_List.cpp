@@ -1,9 +1,31 @@
 #include "Linked_List.h"
 
+template <typename T>
+SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList& sLS)
+:   head(sLS)
+{
+    head->PrintList();
+}
+
+template <typename T>
+SinglyLinkedList<T>::~SinglyLinkedList()
+{
+    cout << "Deconstructor of singly linked list working..." << endl;
+    cout << " Data " << head->data << endl;
+
+    while ( head)
+    {
+        Node<T>* temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    delete head;
+}
 
 // add a Node at the front of the list
 template <typename T>
-void SinglyLinkedList<T>::Push(Node<T>** head, T data)
+void SinglyLinkedList<T>::Push( T data)
 {
     // allocate new Node
     Node<T>* new_node = new Node<T>();
@@ -43,7 +65,7 @@ void SinglyLinkedList<T>::InsertAfterANode(Node<T>* previous, T data)
 
 // add a Node at the end
 template <typename T>
-void SinglyLinkedList<T>::Append(Node<T>** head, T data)
+void SinglyLinkedList<T>::Append( T data)
 {
     // allocate new Node
     Node<T>* new_node = new Node<T>();
@@ -75,7 +97,7 @@ void SinglyLinkedList<T>::Append(Node<T>** head, T data)
 
 // delete a Node by passing the data which needs to be deleted
 template <typename T>
-void SinglyLinkedList<T>::DeleteNode( Node<T>** head, T data)
+void SinglyLinkedList<T>::DeleteNode(  T data)
 {
     Node<T>* storedHead = *head , *previous;
 
@@ -115,7 +137,7 @@ void SinglyLinkedList<T>::DeleteNode( Node<T>** head, T data)
 
 // deleting a Node by given position
 template <typename T>
-void SinglyLinkedList<T>::DeleteNodeByPosition( Node<T>** head, int position)
+void SinglyLinkedList<T>::DeleteNodeByPosition( int position)
 {
     // if linked list is empty
     if (!head)

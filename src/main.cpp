@@ -85,7 +85,8 @@ int main ()
     //AddTwoComplexNumbers();
 
     // working with classes
-    WorkWithGenericStack();
+    //WorkWithGenericStack();
+    WorkingWithLinkedList();
     
     return 0;
 };
