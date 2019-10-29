@@ -27,7 +27,7 @@ void WorkingWithLinkedList()
 
     cout << "Working with classes" << endl;
 
-    SinglyLinkedList sList;
+    SinglyLinkedList<int> sList;
     sList.Push(342);
     sList.Append(2);
     sList.Append(3);
