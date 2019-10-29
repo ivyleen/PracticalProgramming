@@ -1,21 +1,20 @@
 #include "Linked_List.h"
 
-template <typename T>
-SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList& sLS)
-:   head(sLS)
+/*template <typename T>*/
+SinglyLinkedList::SinglyLinkedList()
+:   head(nullptr)
 {
-    head->PrintList();
 }
 
-template <typename T>
-SinglyLinkedList<T>::~SinglyLinkedList()
+/*template <typename T>*/
+SinglyLinkedList::~SinglyLinkedList()
 {
     cout << "Deconstructor of singly linked list working..." << endl;
-    cout << " Data " << head->data << endl;
-
+ 
     while ( head)
     {
-        Node<T>* temp = head;
+        Node<int>* temp = head;
+        cout << " Data " << head->data << endl;
         head = head->next;
         delete temp;
     }
@@ -24,25 +23,25 @@ SinglyLinkedList<T>::~SinglyLinkedList()
 }
 
 // add a Node at the front of the list
-template <typename T>
-void SinglyLinkedList<T>::Push( T data)
+/*template <typename T>*/
+void SinglyLinkedList::Push( int data)
 {
     // allocate new Node
-    Node<T>* new_node = new Node<T>();
+     Node<int>* new_node = new  Node<int>();
 
     // put the data into the new Node
     new_node->data = data;
 
     // make next of new_node as head
-    new_node->next = (*head);
+    new_node->next = head;
 
     // make new_node the head
-    (*head) = new_node;
+    head = new_node;
 }
 
 // add a Node after a given Node
-template <typename T>
-void SinglyLinkedList<T>::InsertAfterANode(Node<T>* previous, T data)
+/*template <typename T>*/
+void SinglyLinkedList::InsertAfterANode( Node<int>* previous, int data)
 {
     if ( !previous)
     {
@@ -51,7 +50,7 @@ void SinglyLinkedList<T>::InsertAfterANode(Node<T>* previous, T data)
     }
 
     // allocate new Node
-    Node<T>* new_node = new Node<T>();
+     Node<int>* new_node = new  Node<int>();
 
     // put the data in it
     new_node->data = data;
@@ -64,11 +63,11 @@ void SinglyLinkedList<T>::InsertAfterANode(Node<T>* previous, T data)
 }
 
 // add a Node at the end
-template <typename T>
-void SinglyLinkedList<T>::Append( T data)
+/*template <typename T>*/
+void SinglyLinkedList::Append( int data)
 {
     // allocate new Node
-    Node<T>* new_node = new Node<T>();
+    Node<int>* new_node = new  Node<int>();
 
     // put the data in it
     new_node->data = data;
@@ -77,14 +76,14 @@ void SinglyLinkedList<T>::Append( T data)
     new_node->next = nullptr;
 
     // if the list is empty make a new node
-    if (!(*head))
+    if (!head)
     {
-        *head = new_node;
+        head = new_node;
         return;
     }
 
     // if it's not empty traverse to the last existing Node
-    Node<T>* last = *head;
+    Node<int>* last = head;
 
     while (last->next)
     {
@@ -96,16 +95,23 @@ void SinglyLinkedList<T>::Append( T data)
 }
 
 // delete a Node by passing the data which needs to be deleted
-template <typename T>
-void SinglyLinkedList<T>::DeleteNode(  T data)
+/*template <typename T>*/
+void SinglyLinkedList::DeleteNode(  int data)
 {
-    Node<T>* storedHead = *head , *previous;
+    // if linked list is empty
+    if (!head)
+    {
+        cout << "The linked list is empty" << endl;
+        return;
+    }
+    
+     Node<int>* storedHead = head , *previous;
 
     // if head stores the data to be deleted
     if ( storedHead && storedHead->data == data)
     {
         // change head
-        *head = storedHead->next;
+        head = storedHead->next;
 
         // free memory
         storedHead = nullptr;
@@ -123,7 +129,7 @@ void SinglyLinkedList<T>::DeleteNode(  T data)
 
     if (!storedHead)
     {
-        cout << "The key is not present in the list" << endl;
+        cout << "The data is not present in the list" << endl;
         return;
     }
 
@@ -136,8 +142,8 @@ void SinglyLinkedList<T>::DeleteNode(  T data)
 }
 
 // deleting a Node by given position
-template <typename T>
-void SinglyLinkedList<T>::DeleteNodeByPosition( int position)
+/*template <typename T>*/
+void SinglyLinkedList::DeleteNodeByPosition( int position)
 {
     // if linked list is empty
     if (!head)
@@ -147,13 +153,13 @@ void SinglyLinkedList<T>::DeleteNodeByPosition( int position)
     }
 
     // store head Node
-    Node<T>* storedHead = *head;
+     Node<int>* storedHead = head;
 
     // if head needs to be deleted
     if ( position == 0 )
     {
         // change head
-        *head = storedHead->next;
+        head = storedHead->next;
 
         // free memory
         storedHead = nullptr;
@@ -175,7 +181,7 @@ void SinglyLinkedList<T>::DeleteNodeByPosition( int position)
 
     // Node storedHead->next is the node to be deleted
     // store point to the next of node to be deleted
-    Node<T>* next = storedHead->next->next;
+     Node<int>* next = storedHead->next->next;
 
     // unlink the Node from the list
     storedHead->next = nullptr;
@@ -185,3 +191,69 @@ void SinglyLinkedList<T>::DeleteNodeByPosition( int position)
     storedHead->next = next;
 }
 
+/*template <typename T>*/
+int SinglyLinkedList::GetSize()
+{
+    int count = 0;
+    Node<int>* nodes = head;
+    while (nodes)
+    {
+        ++count;
+        nodes = nodes->next;
+    }
+
+    return count;
+}
+
+/*template < typename T>*/
+bool SinglyLinkedList::SearchFor( int data)
+{
+    // if linked list is empty
+    if (!head)
+    {
+        cout << "The linked list is empty" << endl;
+        return false;
+    }
+    Node<int>* nodes = head;
+    while (nodes)
+    {
+        if (nodes->data == data)
+        {
+            return true;
+        }
+
+        nodes = nodes->next;
+    }
+
+    return false;
+}
+
+/*template < typename T>*/
+// TODO : recursive here will break the class
+int SinglyLinkedList::GetDataAt( int position)
+{
+    int count = 1;
+
+    if(count == position)
+    {
+        return head->data;
+    }
+
+    // make head next pointer
+    head = head->next;
+
+    // recursively call GetDataAt with decreased position
+    return GetDataAt(position - 1);
+}
+
+/*template<typename T>*/
+void SinglyLinkedList::Print()
+{
+    Node<int>* nodes = head;
+    while (nodes)
+    {
+        cout << nodes->data << " ";
+        nodes = nodes->next;
+    }
+    cout << endl;
+}

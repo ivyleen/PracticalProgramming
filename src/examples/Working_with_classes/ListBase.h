@@ -7,8 +7,8 @@ template <typename B>
 class ListBase
 {
 public:
-    ListBase();
-    ~ListBase();
+    ListBase() {};
+    ~ListBase() {};
 
     // add a Node at the front of the list
     virtual void Push( B data) = 0;
@@ -27,4 +27,15 @@ public:
 
     // check if the list is empty
     virtual bool IsEmpty() = 0;
+
+    // return the size of the list
+    virtual int GetSize() = 0;
+
+    // search for an element : returns true if data is found
+    virtual bool SearchFor( B data) = 0;
+
+    // function that returns the data at position
+    virtual B GetDataAt ( int position) = 0;
+
+    virtual void Print() = 0 ;
 };

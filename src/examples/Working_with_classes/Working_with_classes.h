@@ -25,4 +25,19 @@ void WorkingWithLinkedList()
     // 2 ) make a singlylinkedlist with constructor
     // 3 ) destroy the list so you can debug it
 
+    cout << "Working with classes" << endl;
+
+    SinglyLinkedList sLL;
+    sLL.Push(342);
+    sLL.Append(2);
+    sLL.Append(3);
+    sLL.Append(4);
+    sLL.Print();
+    // // TODO make InsertAfterANode to work with previous data not Node
+    // //sLL.InsertAfterANode(342, 45);
+    cout << "is 4 exist : " << boolalpha << sLL.SearchFor(4) << endl;
+    sLL.DeleteNode(342);
+    sLL.Print();
+    sLL.DeleteNodeByPosition(0);
+    sLL.Print();
 }
