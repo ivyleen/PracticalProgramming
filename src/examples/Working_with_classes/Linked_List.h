@@ -3,48 +3,76 @@
 #include "../../include/IncludeLibraries.h"
 #include "ListBase.h"
 
-// child of ListBase
+// this is the declarations of template class SinglyLinkedList
+// main purpose : to showcase how singly linked list works internally
+// child of base template class ListBase
 template <typename S>
-class SinglyLinkedList /*: public ListBase<T>*/
+class SinglyLinkedList : private ListBase<S>
 {
 private:
     // the first node is called head
     // if head == nullptr the list is empty
     Node<S>* head;
+    // itterator used for itterating through elements of the list
+    // for internal usage only
     Node<S>* itterator;
 
 public:
+    // default constructor
     SinglyLinkedList<S>();
+    // default dectructor 
+    // 
     virtual ~SinglyLinkedList<S>();
 
     // add a Node at the front of the list
-    void Push( S data) ;
+    void Push( S data) override;
 
     // add a Node after a given Node
-    void InsertAfterANode(Node<S>* previous, S data) ;
+    void InsertAfterANode(Node<S>* previous, S data) override;
 
     // add a Node at the end
-    void Append( S data) ;
+    void Append( S data) override;
 
     // delete a Node by passing the data which needs to be deleted
-    void DeleteNode( S data) ;
+    void DeleteNode( S data) override;
 
     // deleting a Node by given position
-    void DeleteNodeByPosition( int position) ;
+    void DeleteNodeByPosition( int position) override;
 
-    bool IsEmpty()  { return (head == nullptr); }
+    bool IsEmpty() override { return (head == nullptr); }
 
     // return the size of the list
-    int GetSize() ;
+    int GetSize() override;
 
     // search for an element : returns true if data is found
-    bool SearchFor( S data) ;
+    bool SearchFor( S data) override;
 
     // recursive function that returns the data at position
-    S GetDataAt ( int position) ;
+    S GetDataAt ( int position) override;
 
-    void Print() ;
+    void Print() override;
 };
+
+
+// This is the definition of the class SinglyLinkedList
+// NOTE :: Because the class is template class we have a slight problem :
+// if we have the implimentations in other Linked_List.cpp file it will be 
+// compiled seperatly first from the implicit inistance in 
+// Working_with_classes. In that case the implementations of those 
+// member functions are not in Working_with_classes.cpp file nor in any 
+// header files included in it and therefore the compiler can't include 
+// complete versions of those functions in the object file. On the other hand
+// compiling Linked_list.cpp the compiler won't compile those instances eihter
+// because there are no implicit or explicit intances of the class.
+// So we have two options if we want to be able to make objects of it:
+// 1) explicitly instantiate all the relevant templates at the end of the cpp
+// file (problem : you need to know which are the relevant templates, but 
+// in this way you can ensure that the implimentations are placed in one 
+// translation unit - .cpp file, and the explicit instances are places 
+// after the definitions of all the funtions)
+// 2) put the definitions inside the header file where the class is declared
+// (problem : it could mean the same funtions are compiled many times so it's 
+// slower, but linker will ignore the duplicate implementations)
 
 template <typename S>
 SinglyLinkedList<S>::SinglyLinkedList()
@@ -268,11 +296,13 @@ bool SinglyLinkedList<S>::SearchFor( S data)
 
     while (itterator)
     {
+        // if we've found the passed data return true
         if (itterator->data == data)
         {
             return true;
         }
 
+        // otherwise continue itterating
         itterator = itterator->next;
     }
 
@@ -283,18 +313,29 @@ template < typename S>
 // TODO : recursive here will break the class
 S SinglyLinkedList<S>::GetDataAt( int position)
 {
-    int count = 1;
+    itterator = head;
+    int count = 0;
 
-    if(count == position)
+    if (GetSize() < position)
     {
-        return head->data;
+        cout << "The position is outside the list." << endl;
+        return 0;
     }
 
-    // make head next pointer
-    head = head->next;
+    // while itterator != nullptr
+    while (itterator)
+    {
+        // if the count of the positions is the same as wanted
+        if (count == position)
+        {
+            // return the data
+            return itterator->data;
+        }
 
-    // recursively call GetDataAt with decreased position
-    return GetDataAt(position - 1);
+        // otherwise continue itterating
+        ++count;
+        itterator = itterator->next;
+    }
 }
 
 template < typename S>
