@@ -2,7 +2,7 @@
 
 /*template <typename T>*/
 SinglyLinkedList::SinglyLinkedList()
-:   head(nullptr)
+:   head(nullptr), itterator(nullptr)
 {
 }
 
@@ -11,6 +11,7 @@ SinglyLinkedList::~SinglyLinkedList()
 {
     cout << "Deconstructor of singly linked list working..." << endl;
  
+    itterator = nullptr;
     while ( head)
     {
         Node<int>* temp = head;
@@ -20,6 +21,7 @@ SinglyLinkedList::~SinglyLinkedList()
     }
 
     delete head;
+    delete itterator;
 }
 
 // add a Node at the front of the list
@@ -27,7 +29,7 @@ SinglyLinkedList::~SinglyLinkedList()
 void SinglyLinkedList::Push( int data)
 {
     // allocate new Node
-     Node<int>* new_node = new  Node<int>();
+    Node<int>* new_node = new  Node<int>();
 
     // put the data into the new Node
     new_node->data = data;
@@ -50,7 +52,7 @@ void SinglyLinkedList::InsertAfterANode( Node<int>* previous, int data)
     }
 
     // allocate new Node
-     Node<int>* new_node = new  Node<int>();
+    Node<int>* new_node = new  Node<int>();
 
     // put the data in it
     new_node->data = data;
@@ -83,15 +85,15 @@ void SinglyLinkedList::Append( int data)
     }
 
     // if it's not empty traverse to the last existing Node
-    Node<int>* last = head;
+    itterator = head;
 
-    while (last->next)
+    while (itterator->next)
     {
-        last = last->next;
+        itterator = itterator->next;
     }
 
     // change the next of last 
-    last->next = new_node;
+    itterator->next = new_node;
 }
 
 // delete a Node by passing the data which needs to be deleted
@@ -181,25 +183,26 @@ void SinglyLinkedList::DeleteNodeByPosition( int position)
 
     // Node storedHead->next is the node to be deleted
     // store point to the next of node to be deleted
-     Node<int>* next = storedHead->next->next;
+    itterator = storedHead->next->next;
 
     // unlink the Node from the list
     storedHead->next = nullptr;
     delete storedHead->next;
 
     // unlink the deleted Node from list
-    storedHead->next = next;
+    storedHead->next = itterator;
 }
 
 /*template <typename T>*/
 int SinglyLinkedList::GetSize()
 {
     int count = 0;
-    Node<int>* nodes = head;
-    while (nodes)
+    itterator = head;
+
+    while (itterator)
     {
         ++count;
-        nodes = nodes->next;
+        itterator = itterator->next;
     }
 
     return count;
@@ -214,15 +217,17 @@ bool SinglyLinkedList::SearchFor( int data)
         cout << "The linked list is empty" << endl;
         return false;
     }
-    Node<int>* nodes = head;
-    while (nodes)
+
+    itterator = head;
+
+    while (itterator)
     {
-        if (nodes->data == data)
+        if (itterator->data == data)
         {
             return true;
         }
 
-        nodes = nodes->next;
+        itterator = itterator->next;
     }
 
     return false;
@@ -249,11 +254,11 @@ int SinglyLinkedList::GetDataAt( int position)
 /*template<typename T>*/
 void SinglyLinkedList::Print()
 {
-    Node<int>* nodes = head;
-    while (nodes)
+    itterator = head;
+    while (itterator)
     {
-        cout << nodes->data << " ";
-        nodes = nodes->next;
+        cout << itterator->data << " ";
+        itterator = itterator->next;
     }
     cout << endl;
 }

@@ -11,6 +11,7 @@ private:
     // the first node is called head
     // if head == nullptr the list is empty
     Node<int>* head;
+    Node<int>* itterator;
 
 public:
     SinglyLinkedList();

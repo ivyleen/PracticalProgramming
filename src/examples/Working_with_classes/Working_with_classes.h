@@ -27,17 +27,17 @@ void WorkingWithLinkedList()
 
     cout << "Working with classes" << endl;
 
-    SinglyLinkedList sLL;
-    sLL.Push(342);
-    sLL.Append(2);
-    sLL.Append(3);
-    sLL.Append(4);
-    sLL.Print();
+    SinglyLinkedList sList;
+    sList.Push(342);
+    sList.Append(2);
+    sList.Append(3);
+    sList.Append(4);
+    sList.Print();
     // // TODO make InsertAfterANode to work with previous data not Node
-    // //sLL.InsertAfterANode(342, 45);
-    cout << "is 4 exist : " << boolalpha << sLL.SearchFor(4) << endl;
-    sLL.DeleteNode(342);
-    sLL.Print();
-    sLL.DeleteNodeByPosition(0);
-    sLL.Print();
+    // //sList.InsertAfterANode(342, 45);
+    cout << "is 4 exist : " << boolalpha << sList.SearchFor(4) << endl;
+    sList.DeleteNode(342);
+    sList.Print();
+    sList.DeleteNodeByPosition(0);
+    sList.Print();
 }
