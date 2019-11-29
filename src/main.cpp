@@ -6,6 +6,7 @@
 #include "examples/Working_with_strings/Working_with_strings.h"
 #include "examples/Working_with_struct/Working_with_struct.h"
 #include "examples/Working_with_classes/Working_with_classes.h"
+#include "examples/Working_with_files/Working_with_files.h"
 
 int main ()
 {
@@ -45,6 +46,7 @@ int main ()
     //PrintArmstrongNumbersInInputInterval();
     //CreateStarPyramid();
     //CanANumberBeRepresentedBySumOfTwoPrimeNumber();
+    //cout << FindBiggestNewNumberWhenPutInputDigitInIt(628, 5) << endl;
 
     // function that can be made as a whole projects
     //SimpleCalculator();
@@ -79,6 +81,9 @@ int main ()
     //CountNumbersAndSpacesInStringLine();
     //RemoveAllSymbolsAcceptNumbers();
     //SortStringInLecsographicOrder();
+    //GetMostUsedCharacters();
+    //printZigZag("uncopyrightable", 4);
+    //cout << whichLetterIsUsedTwiceInTheString("olelee") << endl;
 
     // working with structs
     //InputStudentInfo();
@@ -86,7 +91,10 @@ int main ()
 
     // working with classes
     //WorkWithGenericStack();
-    WorkingWithLinkedList();
-    
+    //WorkingWithLinkedList();
+
+    // working with files
+    c_write_sentence_in_a_file();
+
     return 0;
 };

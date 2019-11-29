@@ -14,6 +14,10 @@
 #include <iterator>
 #include <unordered_map>
 #include <cstring>
+#include <random>       // std::default_random_engine
+#include <chrono>       // std::chrono::system_clock
+#include <climits>
+#include <map>
 
 using std::cout;
 using std::cin;
@@ -36,3 +40,4 @@ using std::getline;
 using std::sort;
 using std::istringstream;
 using std::boolalpha;
+using std::map;

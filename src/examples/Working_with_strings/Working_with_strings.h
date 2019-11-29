@@ -157,7 +157,7 @@ char whichLetterIsUsedTwiceInTheString( const std::string & S)
         counts[ch]++;
     }
 
-    char letter = '';
+    char letter = '-';
 
     // find the one with frequency two
     for (const auto& count : counts)
