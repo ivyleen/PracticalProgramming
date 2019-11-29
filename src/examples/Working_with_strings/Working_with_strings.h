@@ -146,3 +146,27 @@ string printZigZag(string const& s, int numOfRows)
 
     return returnString;
 }
+
+char whichLetterIsUsedTwiceInTheString( const std::string & S)
+{
+    map<char,int> counts;
+
+    // count every single letters in the string
+    for ( char ch : S)
+    {
+        counts[ch]++;
+    }
+
+    char letter = '';
+
+    // find the one with frequency two
+    for (const auto& count : counts)
+    {
+        if ( count.second == 2)
+        {
+            letter = count.first;
+        }
+    }
+
+    return letter;
+}
