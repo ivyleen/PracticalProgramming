@@ -102,3 +102,47 @@ void SortStringInLecsographicOrder()
 
     cout << cities << endl;
  }
+
+// we are not changing the original string 
+// we simply return a new string with the new value 
+// that's why we can mark s as a string const and
+// we are taking it by reference to avoid copying
+string printZigZag(string const& s, int numOfRows)
+{
+    // check if number of rows is 1
+    if ( numOfRows == 1)
+    {
+        // return the string as it is
+        return s;
+    }
+
+    // otherwise continue conversion
+    // returning string
+    string returnString;
+    // reduce reallocation by reserving storage
+    returnString.reserve(s.size());
+    // the step we are taking when putting the correct characters
+    // in the return string
+    int step = (numOfRows - 1) *2;
+
+    // for all rows
+    for (int i = 0; i < numOfRows; ++i)
+    {
+        // until the size of the original string step by step
+        for ( int j = 0; j + i < s.size(); j += step)
+        {
+            // put the current character of the colum made by the step
+            // in the return string
+            returnString += s.at(j+i);
+            
+            // put the character between the colums 
+            // in the rows between the first and the last one
+            if ( i != 0 && i != numOfRows - 1 && j + step - i < s.size())
+            {
+                returnString += s.at(j + step - i);
+            }
+        }
+    }
+
+    return returnString;
+}
