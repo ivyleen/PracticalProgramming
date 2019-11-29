@@ -7,7 +7,7 @@
 // main purpose : to showcase how singly linked list works internally
 // child of base template class ListBase
 template <typename S>
-class SinglyLinkedList : private ListBase<S>
+class SinglyLinkedList : public ListBase<S>
 {
 private:
     // the first node is called head
@@ -15,7 +15,7 @@ private:
     Node<S>* head;
     // itterator used for itterating through elements of the list
     // for internal usage only
-    Node<S>* itterator;
+    mutable Node<S>* itterator;
 
 public:
     // default constructor
@@ -50,7 +50,8 @@ public:
     // recursive function that returns the data at position
     S GetDataAt ( int position) override;
 
-    void Print() override;
+protected:
+    ostream& Print( ostream& out) const override;
 };
 
 
@@ -339,13 +340,15 @@ S SinglyLinkedList<S>::GetDataAt( int position)
 }
 
 template < typename S>
-void SinglyLinkedList<S>::Print()
+ostream& SinglyLinkedList<S>::Print(ostream& out) const
 {
     itterator = head;
     while (itterator)
     {
-        cout << itterator->data << " ";
+        out << itterator->data << " ";
         itterator = itterator->next;
     }
-    cout << endl;
+    out << "\n";
+
+    return out;
 }

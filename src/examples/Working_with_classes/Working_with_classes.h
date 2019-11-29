@@ -26,12 +26,12 @@ void WorkingWithLinkedList()
     sList.Append(2);
     sList.Append(3);
     sList.Append(4);
-    sList.Print();
+    cout << sList << endl;
     // // TODO make InsertAfterANode to work with previous data not Node
     // //sList.InsertAfterANode(342, 45);
     cout << "is 4 exist : " << boolalpha << sList.SearchFor(4) << endl;
     sList.DeleteNode(342);
-    sList.Print();
+    cout << sList << endl;
     sList.DeleteNodeByPosition(0);
-    sList.Print();
+    cout << sList << endl;
 }
