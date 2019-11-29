@@ -639,3 +639,53 @@ void CanANumberBeRepresentedBySumOfTwoPrimeNumber()
     if(!canBeRepresented) 
         cout << "The number can NOT be represented by two prime numbers." << endl;
 }
+
+// Find biggest new number when put number five 
+// between or in front of the digits of a given 
+// input number in range ( 1 - 9)
+int FindBiggestNewNumberWhenPutInputDigitInIt( int num, int inputDigit)
+{
+    if (! ( inputDigit >= 1 && inputDigit <= 9))
+    {
+        cout << "The input number is not in range 1 to 9." << endl;
+        return num;
+    }
+
+    int original = 0;
+    int reminder = 0;
+    int step = 10;
+    int numberWithInputDigitInIt = 0;
+    int i = 10;
+    int maxNumber = num;
+    bool lastStep = false;
+
+    while (!lastStep)
+    {
+        // separate the number to two pieces :
+        // before and after the step
+        // and put the intput number in front of the second one
+        original = num;
+        numberWithInputDigitInIt = num;
+        reminder = (original % step) + step * inputDigit;
+        original = original / step;
+        numberWithInputDigitInIt = original * (step * i) + reminder;
+        step *= 10;
+        
+        // if the result number with five in it is the max number
+        // until now - remember it
+        if (numberWithInputDigitInIt > maxNumber)
+        {
+            maxNumber = numberWithInputDigitInIt;
+        }
+
+        // if the step is more than the number + five in front of it
+        // break the loop
+        if (to_string(step).size() > to_string(num).size() + 1)
+        {
+            lastStep = true;
+        }
+    };
+
+    // return the max number with five in it
+    return maxNumber;    
+}

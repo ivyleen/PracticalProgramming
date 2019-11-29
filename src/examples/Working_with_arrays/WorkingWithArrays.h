@@ -91,7 +91,7 @@ void AddTwoMultiDimensionalArrays()
     PrintMultidimensionalVector(v_array1);
     PrintMultidimensionalVector(v_array2);
 
-        for ( int i = 0; i < v_array2.size(); ++i)
+    for ( int i = 0; i < v_array2.size(); ++i)
     {
         for ( int j = 0; j < v_array2.at(i).size(); ++j)
         {
