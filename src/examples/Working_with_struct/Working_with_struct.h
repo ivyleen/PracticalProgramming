@@ -33,10 +33,7 @@ void AddTwoComplexNumbers()
     cout << "Enter second complex number:" << endl;
     CheckIfValidComplexNumber(second);
 
-    result.real = first.real + second.real;
-    result.imag = first.imag + second.imag;
+    result = first + second;
 
     cout << result << endl;
-
-    // TODO : Fix it
 }
