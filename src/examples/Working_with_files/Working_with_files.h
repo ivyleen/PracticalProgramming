@@ -1,34 +1,55 @@
 #pragma once
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <fstream>
 
-// c style working with files
-void c_write_sentence_in_a_file()
+void FileInputOutput()
 {
-    char sentence[1000];
-    FILE *filePtr;
+    std::ofstream fileOutput( "src/examples/Working_with_files/inputOutput.txt" );
 
-    // w - create a new empty file
-    // if file with the same name exist - it deletes everything in it
-    filePtr = fopen("src/examples/Working_with_files/sentence.txt", "w");
-    if ( filePtr == NULL)
+    if ( !fileOutput )
     {
-        printf("There is an error with opening the file.");
-        exit(1);
+        cout << "Error in opening the file." << endl;
+        return;
     }
 
-    printf("Enter a sentence: \n");
-    // read input from user and put it in sentence
-    scanf("%[^\n]", sentence);
+    fileOutput << "Hello from the file.\n";
+    fileOutput << "We can write in different lines.\n";
 
-    // write it in the file
-    fprintf(filePtr, "%s", sentence);
-    // close the file
-    fclose(filePtr);
+    fileOutput.close();
+
+    std::ifstream fileInput( "src/examples/Working_with_files/inputOutput.txt" );
+    if (!fileInput)
+    {
+        cout << "Error in opening the file." << endl;
+        return;
+    }
+
+    // don't skip whitespaces
+    fileInput.unsetf(std::ios::skipws);
+
+    cout << "We can read character by character :" << endl;
+    char ch;
+    while(!fileInput.eof())
+    {
+        fileInput >> ch;
+        cout << ch;
+    }
+
+    cout << "Or we can read line by line :" << endl;
+    std::string str;
+
+    // the eof flag will be set up in the stream 
+    // after the previous loop so we need to clear it
+    fileInput.clear();
+    // return file pointer to beginning of the file
+    fileInput.seekg(0, std::ios::beg);
+
+    while (getline(fileInput, str))
+    {
+        std::cout << str << std::endl;    
+    }
+
+    fileInput.close();
 }
 
-void c_read_sentence_from_a_file()
-{
-
-}

@@ -6,6 +6,7 @@
 #include "examples/Working_with_strings/Working_with_strings.h"
 #include "examples/Working_with_struct/Working_with_struct.h"
 #include "examples/Working_with_classes/Working_with_classes.h"
+#include "examples/Working_with_files/Working_with_files_c_style.h"
 #include "examples/Working_with_files/Working_with_files.h"
 
 int main ()
@@ -94,7 +95,11 @@ int main ()
     //WorkingWithLinkedList();
 
     // working with files
-    c_write_sentence_in_a_file();
+    //c_write_sentence_in_a_file();
+    //c_read_source_code_of_the_file();
+    //c_read_sentence_from_a_file();
+    //FileInputOutput();
+
 
     return 0;
 };
