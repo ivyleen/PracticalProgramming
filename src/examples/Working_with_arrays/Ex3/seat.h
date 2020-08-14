@@ -1,14 +1,14 @@
 #ifndef SEAT_H
 #define SEAT_H
 
-#include "../../../include/IncludeLibraries.h"
+#include <string>
 
 class Seat
 {
 private:
 
 	int m_iNumber;
-	string m_sName;
+	std::string m_sName;
 	bool m_bIsItTaken;
 	bool m_bIsItOutOfOrder;
 
@@ -23,8 +23,8 @@ public:
 	void OutOfOrder(){m_bIsItOutOfOrder = true;}
 	void InOrder(){m_bIsItOutOfOrder = false;}
 
-	void SetNameOfPassanger(string name){m_sName = name;}
-	string GetNameOfPassanger(){return m_sName;}
+	void SetNameOfPassanger(std::string name){m_sName = name;}
+	std::string GetNameOfPassanger(){return m_sName;}
 
 	void SetNumberOfSeat(int seatNumber){m_iNumber = seatNumber;}
 	int GetNumberOfSeat(){return m_iNumber;}

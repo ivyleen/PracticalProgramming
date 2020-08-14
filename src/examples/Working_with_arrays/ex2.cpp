@@ -1,5 +1,5 @@
 #include "ex2.h"
-
+#include <iomanip>
 
 const unsigned int Ex2::m_aProbabilities[NUMBER_OF_FREQUENCY]
                                 = {0,0,1,2,3,4,5,6,5,4,3,2,1};
@@ -79,11 +79,11 @@ void Ex2::CountTheSums()
 void Ex2::Print()
 {
     // print the titles
-    std::cout <<std::endl << "Counter : "<<setw(set*set)
-              << "Frequency : " <<setw(set*set)
+    std::cout <<std::endl << "Counter : "<<std::setw(set*set)
+              << "Frequency : " <<std::setw(set*set)
               << "    Probabilities      :"
-              << "  Ideal % : " <<setw(set*set)
-              << "   Real % : " <<setw(set*set)
+              << "  Ideal % : " <<std::setw(set*set)
+              << "   Real % : " <<std::setw(set*set)
               << "Reasonable:"
               <<std::endl;
 
@@ -116,7 +116,7 @@ void Ex2::Print()
 
 }
 
-string Ex2::PrintTheProbabilities(int i)
+std::string Ex2::PrintTheProbabilities(int i)
 {
     switch (i) {
     case 2:
@@ -222,7 +222,7 @@ void Ex2::PrintCalculatedValues()
 
     for (unsigned int i = 1; i <= m_aCalculatedValues.size(); i++)
     {
-        std::cout << "|" << setw(set)
+        std::cout << "|" << std::setw(set)
                   << m_aCalculatedValues.at(i-1);
 
         if ( i % number == 0 )

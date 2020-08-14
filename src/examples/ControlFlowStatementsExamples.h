@@ -1,6 +1,15 @@
 #pragma once
-#include "../include/IncludeLibraries.h"
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <algorithm>
 #include "../include/InputOutputChecks.h"
+
+using std::cout;
+using std::endl;
+using std::string;
+using std::setw;
 
 void IsNumberEven()
 {
@@ -348,7 +357,7 @@ void CountTheNumberOfDigits()
 
     cout << "Second techniques" << endl;
     number = (number > 0) ? number : -number;
-    count = to_string(number).length();
+    count = std::to_string(number).length();
 
     cout << "The count is: " << count << endl;
 }
@@ -370,8 +379,8 @@ void ReverseNumber()
     cout << "The reversed number is: " << reversedNumber << endl;
 
     cout << "Second techniques" << endl;
-    string sNumber = to_string(number);
-    reverse(sNumber.begin(), sNumber.end());
+    string sNumber = std::to_string(number);
+    std::reverse(sNumber.begin(), sNumber.end());
     cout << "The reversed number is: " << sNumber << endl;
 }
 
@@ -381,7 +390,7 @@ void IsPalindrome()
     CheckIfValid(original);
 
     reversed = original;
-    reverse(reversed.begin(), reversed.end());
+    std::reverse(reversed.begin(), reversed.end());
 
     if ( original == reversed)
     {
@@ -680,7 +689,7 @@ int FindBiggestNewNumberWhenPutInputDigitInIt( int num, int inputDigit)
 
         // if the step is more than the number + five in front of it
         // break the loop
-        if (to_string(step).size() > to_string(num).size() + 1)
+        if (std::to_string(step).size() > std::to_string(num).size() + 1)
         {
             lastStep = true;
         }

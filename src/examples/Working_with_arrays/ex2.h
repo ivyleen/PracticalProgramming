@@ -2,8 +2,11 @@
 #define EX2_H
 
 // includes
-#include "../../include/IncludeLibraries.h"
+#include <iostream>
+#include <array>
+#include <string>
 #include "../../include/Debug.h"
+
 
 class Ex2
 {

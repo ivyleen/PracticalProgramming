@@ -2,7 +2,9 @@
 #define EX3_H
 
 #include "flight.h"
-#include "../../../include/IncludeLibraries.h"
+#include <vector>
+
+using std::vector;
 
 class Ex3
 {

@@ -2,6 +2,10 @@
 #include "ex2.h"
 #include "Ex3/ex3.h"
 
+#include <array>
+#include <iostream>
+using std::array;
+
 void CalculateAvarageValueOfArray()
 {
     int size;
@@ -262,7 +266,7 @@ void FindBiggestNumberInDynamicMemory()
     CheckIfValidSizeOfArray(size);
 
     // making unique_ptr to array with size 'size'
-    unique_ptr<float []> data =  make_unique<float[]> (size);
+    std::unique_ptr<float []> data =  std::make_unique<float[]> (size);
 
     cout << "Enter elements:" << endl;
     for ( int i = 0; i < size ; ++i)

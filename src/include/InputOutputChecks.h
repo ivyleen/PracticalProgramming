@@ -1,6 +1,15 @@
 #pragma once
-#include "IncludeLibraries.h"
+#include <iostream>
+#include <vector>
+#include <array>
+#include <iterator>
 #include "../examples/Working_with_struct/StructDefinitions.h"
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+
 
 template <typename type>
 void CheckIfValid(type& input)
@@ -41,21 +50,21 @@ void CheckIfValidInputForArrayElement(type &input)
 
 // overloading operator << to print std::arrays
 template <typename T, std::size_t N>
-ostream& operator <<(ostream& o, const array<T, N>& arr)
+std::ostream& operator <<(std::ostream& o, const std::array<T, N>& arr)
 {
-    copy(arr.cbegin(), arr.cend(), ostream_iterator<T>(o, ", "));
+    copy(arr.cbegin(), arr.cend(), std::ostream_iterator<T>(o, ", "));
     return o;
 }
 
 // overloading operator << to print std::vector
 template <typename T>
-ostream& operator <<(ostream& o, const vector<T>& vec)
+std::ostream& operator <<(std::ostream& o, const vector<T>& vec)
 {
-    copy(vec.cbegin(), vec.cend(), ostream_iterator<T>(o, ", "));
+    copy(vec.cbegin(), vec.cend(), std::ostream_iterator<T>(o, ", "));
     return o;
 }
 
-void CheckIfValidStringLine(string& line)
+void CheckIfValidStringLine(std::string& line)
 {
     while (cout << "Enter string line: " && !getline(cin, line))
     {

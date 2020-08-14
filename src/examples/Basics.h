@@ -1,6 +1,10 @@
 #pragma once
-#include "../include/IncludeLibraries.h"
+#include <iostream>
 #include "../include/InputOutputChecks.h"
+
+using std::cout;
+using std::endl;
+
 
 void HelloWorld()
 {

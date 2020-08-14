@@ -6,6 +6,7 @@
 #include "examples/Working_with_strings/Working_with_strings.h"
 #include "examples/Working_with_struct/Working_with_struct.h"
 #include "examples/Working_with_classes/Working_with_classes.h"
+//#include "examples/Working_with_strings/PlaneBookingForFamilies.h"
 #include "examples/Working_with_files/Working_with_files_c_style.h"
 #include "examples/Working_with_files/Working_with_files.h"
 
@@ -93,6 +94,9 @@ int main ()
     // working with classes
     //WorkWithGenericStack();
     //WorkingWithLinkedList();
+
+    //string s = "2A 1H 2J 1A";
+    //cout << seats(2, s);
 
     // working with files
     //c_write_sentence_in_a_file();

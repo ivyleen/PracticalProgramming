@@ -2,8 +2,12 @@
 #define EX1_H
 
 // includes
-#include "../../include/IncludeLibraries.h"
+#include <iostream>
+#include <vector>
+#include <array>
 #include "../../include/Debug.h"
+
+using std::vector;
 
 class Ex1
 {

@@ -5,7 +5,8 @@
 
 #include "seat.h"
 
-#include "../../../include/IncludeLibraries.h"
+#include <string>
+#include <array>
 
 static const unsigned char NUMBER_OF_SEATS = 10;
 
@@ -19,7 +20,7 @@ private:
 	// current flight number
 	int m_iCurrentFlight;
 	// name of the plane;
-	string m_sNameOfPlane;
+	std::string m_sNameOfPlane;
 	// number of taken seats
 	int m_iTakenSeats;
 	// number of free seats
@@ -27,25 +28,25 @@ private:
 	// number of out of order seats
 	int m_iOutOfOrderSeats;
 	// all names of passangers
-	array<string, NUMBER_OF_SEATS> m_aNamesOfPassangers;
+	std::array<std::string, NUMBER_OF_SEATS> m_aNamesOfPassangers;
 	// array with all the seats and their information
-	array<Seat, NUMBER_OF_SEATS> m_aSeats;
+	std::array<Seat, NUMBER_OF_SEATS> m_aSeats;
 
 public:
     Flight();
 	~Flight();
 
 	// setters and getter
-	void SetNameOfPassanger(string name, int seat){m_aNamesOfPassangers.at(seat) = name;}
-	string GetNameOfPassanger(int seat){return m_aNamesOfPassangers.at(seat);}
+	void SetNameOfPassanger(std::string name, int seat){m_aNamesOfPassangers.at(seat) = name;}
+	std::string GetNameOfPassanger(int seat){return m_aNamesOfPassangers.at(seat);}
 
 	void SetCurrentFlightNumber(int flight){m_iCurrentFlight = flight;}
 	int GetCurrentFlightNumber(){return m_iCurrentFlight;}
 
-	void SetNameOfThePlane(string name){m_sNameOfPlane = name;}
-	string GetNameOfPlane(){return m_sNameOfPlane;}
+	void SetNameOfThePlane(std::string name){m_sNameOfPlane = name;}
+	std::string GetNameOfPlane(){return m_sNameOfPlane;}
 
-	inline array<Seat,NUMBER_OF_SEATS> GetAllSeats() {return m_aSeats;}
+	inline std::array<Seat,NUMBER_OF_SEATS> GetAllSeats() {return m_aSeats;}
 
 	// checks for seats
 	inline int HowManySeatsAreTaken() {return m_iTakenSeats;}

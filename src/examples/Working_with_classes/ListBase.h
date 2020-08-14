@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Node.h"
+#include <iostream>
 
 // abstract class as a base for every linked list
 template <typename B>
@@ -56,5 +57,5 @@ protected:
     // and in this class needs to be with declaration
     // and a body (empty for now) so we don't get an undefined 
     // reference to the function error
-    virtual ostream& Print( ostream&) const {}
+    virtual std::ostream& Print( std::ostream&) const {}
 };

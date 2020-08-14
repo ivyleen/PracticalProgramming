@@ -1,6 +1,16 @@
 
 #include "ex3.h"
 
+#include <iostream>
+#include <array>
+#include <string>
+
+using std::array;
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+
 Ex3::Ex3()
 {
 

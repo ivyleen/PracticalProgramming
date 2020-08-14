@@ -3,6 +3,10 @@
 #include <iostream>
 #include <fstream>
 
+using std::cout;
+using std::endl;
+
+
 void FileInputOutput()
 {
     std::ofstream fileOutput( "src/examples/Working_with_files/inputOutput.txt" );

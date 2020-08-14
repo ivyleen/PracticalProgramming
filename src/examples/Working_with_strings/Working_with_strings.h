@@ -1,7 +1,15 @@
 #pragma once
 
-#include "../../include/IncludeLibraries.h"
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <map>
 #include "../../include/InputOutputChecks.h"
+
+using std::cout;
+using std::endl;
+using std::string;
+using std::unordered_map;
 
 void CharsFrequencyInString()
 {
@@ -89,7 +97,7 @@ void SortStringInLecsographicOrder()
     vector<string> cities;
     string buffer, data;
     CheckIfValidStringLine(buffer);
-    istringstream iss(buffer);
+    std::istringstream iss(buffer);
     while (iss >> data)
     {
         cities.push_back(data);
@@ -149,7 +157,7 @@ string printZigZag(string const& s, int numOfRows)
 
 char whichLetterIsUsedTwiceInTheString( const std::string & S)
 {
-    map<char,int> counts;
+    std::map<char,int> counts;
 
     // count every single letters in the string
     for ( char ch : S)

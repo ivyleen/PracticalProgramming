@@ -1,7 +1,10 @@
 #pragma once
 
-#include "../../include/IncludeLibraries.h"
+#include <iostream>
 #include "ListBase.h"
+
+using std::cout;
+using std::endl;
 
 // this is the declarations of template class SinglyLinkedList
 // main purpose : to showcase how singly linked list works internally
@@ -51,7 +54,7 @@ public:
     S GetDataAt ( int position) override;
 
 protected:
-    ostream& Print( ostream& out) const override;
+    std::ostream& Print( std::ostream& out) const override;
 };
 
 
@@ -340,7 +343,7 @@ S SinglyLinkedList<S>::GetDataAt( int position)
 }
 
 template < typename S>
-ostream& SinglyLinkedList<S>::Print(ostream& out) const
+std::ostream& SinglyLinkedList<S>::Print(std::ostream& out) const
 {
     itterator = head;
     while (itterator)

@@ -1,4 +1,8 @@
 #include "GenericStack.h"
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 GenericStack::GenericStack(int id)
     : m_stack{},

@@ -1,4 +1,6 @@
 #include "ex1.h"
+#include <iomanip>
+
 
 Ex1::Ex1()
     : m_iBaseCommission(0)
@@ -198,6 +200,6 @@ void Ex1::PrintWholeSallaries()
     std::cout << "Person № " << std::setw(13) << "Sallary :" << std::endl;
     for (unsigned int i=0; i < m_vWholeSallaries.size(); i++)
     {
-        std::cout << i+1 << setw(21) << m_vWholeSallaries[i] << std::endl;
+        std::cout << i+1 << std::setw(21) << m_vWholeSallaries[i] << std::endl;
     }
 }
